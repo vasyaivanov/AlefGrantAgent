@@ -3,15 +3,11 @@
 _The agent will draft ALL narrative text. To do that well and truthfully, it needs the facts below. Please add documents to `/inputs` and answer the questions. The agent will not invent technical specs, financials, or credentials._
 
 ## A. The single most important decision: the PROJECT CONCEPT
-SBIR funds a **specific R&D project with a real technical risk to retire in ~6 months**, not general company-building. We must anchor on one. Candidate angles for Alef (pick one, combine, or propose your own):
+**CEO-SELECTED: Energy/battery architecture** — a pack/architecture enabling BOTH useful road range AND VTOL flight endurance/power. (FAA parked per CEO.) Draft pitch: ../nsf-sbir-phase-i/01-PROJECT-PITCH-DRAFT.md.
 
-1. **Dual-mode powertrain & thermal management** — the hard problem of one electric propulsion/energy system efficiently serving BOTH road driving and VTOL flight; thermal limits during hover.
-2. **Road-to-flight transition & flight controls** — safe, certifiable control logic and mechanisms for transitioning between drive and VTOL modes.
-3. **Lightweight structural/airframe innovation** — meeting automotive crash safety AND aircraft weight/strength simultaneously.
-4. **Energy density / battery architecture** — pack design enabling both useful drive range and flight endurance.
-5. **Detect-and-avoid / safety & autonomy** for low-altitude flight in mixed environments.
-
-➡️ **Question 1:** Which concept should anchor the NSF pitch (and NASA AERO.9/AERO.10 narrative)? What is the *specific technical unknown* you'd want grant money to resolve?
+➡️ Remaining specifics needed to finalize the pitch & narrative (confirm or correct — do not want to invent):
+- [[Battery approach]]: hybrid energy/power cells? reconfigurable topology? cell chemistries? thermal method?
+- [[Representative power profiles]]: rough drive duty cycle + hover/climb power & duration for Model A.
 
 ## B. Documents to add to `/inputs`
 - [ ] **Team bios / CVs** for proposed PI and key technical personnel (for SciENcv biosketches).
@@ -29,6 +25,6 @@ SBIR funds a **specific R&D project with a real technical risk to retire in ~6 m
 5. Do you have a **negotiated indirect cost rate**, or should I use the standard SBIR approach?
 6. Any **prior government funding** (SBIR/STTR or other) we must disclose?
 7. For NASA: any objection to us drafting toward **AERO.9 (eVTOL test/analysis)** and **AERO.10 (hybrid powertrain)**, or do you prefer a pure-electric framing (NASA topics sometimes specify hybrid)?
-8. **FAA #9 decision:** drop it, or pursue via a university partner (see ../faa-aviation-research-grants/ELIGIBILITY-BLOCKER.md)?
+8. ~~FAA #9 decision~~ — **PARKED per CEO.** Focus is NSF + NASA.
 
 _Nothing will be drafted as final or submitted without your approval._
