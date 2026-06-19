@@ -1,27 +1,20 @@
-# NASA SBIR Phase I — Requirements Checklist (pre-position for PY2027)
+# What NASA SBIR Phase I requires (pre-positioning for PY2027)
 
-_Status: pre-positioning. PY2026 closed (proposals due May 21 2026). The FY26-27 BAA is valid to Sep 30 2027; we draft a reusable technical narrative now and submit when the next appendix/cycle opens. Confirm all against the [NASA SBIR/STTR FY26-27 BAA Reference Guide](https://www.nasa.gov/wp-content/uploads/2024/11/nasa-sbir-sttr-fy26-27-baa-reference-guide.pdf)._
+We missed PY2026. Proposals were due 21 May 2026 and that's gone. The good news is the FY26-27 BAA runs until 30 September 2027, so we write a strong technical narrative now and have it ready when the next appendix opens. Verify everything below against the [NASA SBIR/STTR FY26-27 BAA Reference Guide](https://www.nasa.gov/wp-content/uploads/2024/11/nasa-sbir-sttr-fy26-27-baa-reference-guide.pdf).
 
-## Target subtopics (best topical fit for Alef)
-- **AERO.9** — full-scale/scalable test & analysis capabilities for AAM and **eVTOL** vehicles (aero, propulsion, flight dynamics, controls, acoustics).
-- **AERO.10** — **hybrid powertrain** technologies for next-gen aircraft propulsion.
-- (Re-confirm exact subtopic numbers/titles when the cycle reopens — topics change year to year.)
+## The subtopics that fit Alef
+AERO.9 covers test and analysis capabilities for AAM and eVTOL vehicles across aerodynamics, propulsion, flight dynamics, controls, and acoustics. AERO.10 covers hybrid powertrain technology for next-generation aircraft. Re-check the exact subtopic numbers and titles when the cycle reopens, because they get renumbered. Source: [NASA PY2026 hub](https://www.nasa.gov/sbir_sttr/nasa-sbir-sttr-program-program-year-2026-information-hub/).
 
-Source: [NASA PY2026 hub](https://www.nasa.gov/sbir_sttr/nasa-sbir-sttr-program-program-year-2026-information-hub/)
+## The things that bite
+Submissions go through ProSAMS, so register early instead of on deadline day. The technical proposal has a hard 15-page limit; the other parts only have suggested lengths. You write to one specific subtopic's stated objectives, lay out the technical approach, and show a credible path to commercialization. A company can submit at most two proposal packages in a cycle. Source on the page limit: [SBIR.ORG NASA guide](https://sbir.org/nasa/nasa-sbir-submission-guide/).
 
-## Key facts
-- Submission system: **ProSAMS** (register early). Source: [NASA hub](https://www.nasa.gov/sbir_sttr/nasa-sbir-sttr-program-program-year-2026-information-hub/)
-- **Technical proposal: strict 15-page limit** (other parts have suggested limits). Source: [SBIR.ORG NASA guide](https://sbir.org/nasa/nasa-sbir-submission-guide/)
-- Must address a **specific subtopic's** objectives + technical approach + credible commercialization path.
-- Companies limited to **no more than 2 proposal packages** per cycle.
+## Components in a typical Phase I
+- Cover and forms in ProSAMS.
+- Technical proposal, 15 pages or fewer: the problem, the objectives, the work plan, related work, key people, and facilities.
+- Commercialization or business plan, off NASA's template.
+- Budget on the sample forms, with allowable cost categories and an indirect-rate justification.
+- Eligibility certifications. Alef passes ownership and size.
+- PI primarily employed by Alef at award.
 
-## Required components (typical NASA Phase I)
-- [ ] Proposal cover / forms (ProSAMS)
-- [ ] **Technical Proposal** (≤15 pages) — identification of problem, objectives, work plan, related work, key personnel, facilities
-- [ ] **Commercialization / Business Plan** (template provided)
-- [ ] **Budget** (sample forms; allowable cost categories; indirect rate justification)
-- [ ] Eligibility certifications (ownership/size — Alef PASSES)
-- [ ] PI primary employment with company at award
-
-## Reuse note
-The NSF technical narrative (powertrain/controls/safety R&D) can be **adapted** to AERO.9/AERO.10 — write once, retarget. NASA is more topic-prescriptive than NSF, so expect a NASA-specific objectives section.
+## On reuse
+The NSF battery narrative carries straight over here with edits. NASA is fussier about hitting the subtopic than NSF is, so expect to write a NASA-specific objectives section even though the core technical story is the same. One wrinkle: AERO.10 is written around hybrid propulsion, so a 100% electric framing needs a careful angle or it reads off-topic.

@@ -1,36 +1,36 @@
-# Alef Aeronautics — Grant Operations STATUS
+# Alef Aeronautics grant tracker
 
-_Last updated: 2026-06-18_
+Last updated 18 June 2026.
 
-Author of record: CEO, Alef Aeronautics. This agent drafts and prepares only; the CEO submits.
+I draft and prepare the packages. The CEO is the author of record and the only person who logs in or submits anything.
 
-## Stage legend
-found → chosen → drafting → awaiting approval → package ready → handed off
+Stages: found, chosen, drafting, awaiting approval, package ready, handed off.
 
-## Current phase
-**(c) Preparation** — chosen: NSF SBIR Phase I, NASA SBIR (pre-position), FAA (BLOCKED, see below). Requirements checklists built; **awaiting CEO inputs** (project concept + documents) — see grants/_shared/INPUTS-NEEDED.md.
+## Where we are
+Step (c), preparation. We're pursuing NSF SBIR Phase I now and writing the NASA SBIR narrative ahead of its next cycle. FAA is out as a direct application, reason in its folder. The requirement checklists are built. I'm stuck waiting on the CEO for the battery specifics, a PI name, and a few documents before the drafting can finish. Details in grants/_shared/INPUTS-NEEDED.md.
 
-## Company facts (CEO-confirmed 2026-06-18)
-- Stage: **pure R&D / pre-production** (do NOT use "production" press framing).
-- Pre-orders = small refundable deposits = demand signal, NOT booked revenue.
-- Ownership: **>50% U.S. individuals** → SBIR/STTR ownership gate PASS.
-- SAM.gov: **active** (UEI exists; confirm exact value when a form needs it).
-- Still to confirm: exact employee headcount; Login.gov account status.
+## What the CEO confirmed on 18 June 2026
+- The company is in R&D, before production. Don't repeat the press line about cars being built on a line.
+- The roughly 3,500 pre-orders are small refundable deposits. They prove demand. They are not revenue.
+- Majority owned by US individuals, so the SBIR ownership test passes.
+- SAM.gov registration is active, which means a UEI already exists. I'll need the exact number when a form asks for it.
+- Open items: exact headcount, and whether a Login.gov account exists.
 
-## Grants pipeline (full ranked 20 + sources in grants/_discovery/opportunities.md)
+## Pipeline
+Full ranked list of 20 with sources sits in grants/_discovery/opportunities.md.
+
 | Grant | Agency | Stage | Notes |
 |-------|--------|-------|-------|
-| **NSF SBIR/STTR Phase I** | NSF | **drafting prep / awaiting inputs** | CHOSEN. Up to $305K. Pitch first → target Nov 4 2026. Requirements built. |
-| **NASA SBIR Phase I** | NASA | **drafting prep (pre-position)** | CHOSEN. PY2026 closed; pre-position narrative for PY2027 (AERO.9/AERO.10). |
-| FAA Aviation Research Grants | FAA | **BLOCKED** | For-profits ineligible as prime. Awaiting CEO: drop vs. university-partner route. |
-| DOT, EPA, NIST, DHS SBIR; DOE SBIR; VTO; CCTC; CalCompetes; CAEATFA STE; ARPA-E; Activate; others | various | parked | Not selected now; CAEATFA STE & DOE SBIR & ARPA-E flagged as good future adds. |
-| AFWERX/Agility Prime | USAF | parked (military) | Deprioritized per CEO. |
+| NSF SBIR/STTR Phase I | NSF | drafting / awaiting inputs | Chosen. Up to $305K. Pitch first, then aim at the 4 Nov 2026 window. |
+| NASA SBIR Phase I | NASA | drafting (pre-position) | Chosen. PY2026 closed already, so we write now for PY2027 (AERO.9 / AERO.10). |
+| FAA Aviation Research Grants | FAA | blocked | For-profits can't be the prime. Parked by the CEO. |
+| DOT, EPA, NIST, DHS SBIR; DOE SBIR; VTO; CCTC; CalCompetes; CAEATFA STE; ARPA-E; Activate; others | various | parked | Not chosen this round. CAEATFA STE, DOE SBIR, and ARPA-E are the strongest future adds. |
+| AFWERX / Agility Prime | USAF | parked (military) | Deprioritized by the CEO. |
 
-## Open questions for CEO (see grants/_shared/INPUTS-NEEDED.md for full list)
-1. **Project concept** to anchor NSF pitch + NASA narrative (the specific technical unknown).
-2. Documents into /inputs: team bios, incorporation/ownership, UEI, financials/rates, FAA cert, tech material, LOIs.
-3. PI name; headcount; Login.gov + Research.gov accounts; indirect rate; prior gov funding.
-4. **FAA decision:** drop, or pursue via university partner.
+## Still need from the CEO
+1. The battery approach in a sentence, plus rough drive and hover power numbers, so I can finish the pitch and the NASA narrative.
+2. Documents into /inputs: team bios, incorporation and ownership summary, the exact UEI, labor rates for the budget, the FAA cert, any technical material, any customer letters.
+3. PI name, headcount, whether Login.gov and Research.gov accounts exist, the indirect rate, and any prior government funding.
 
-## Documents requested from CEO (/inputs)
-- _None requested yet — will list once grants are chosen._
+## Documents requested from the CEO (/inputs)
+See the list above. Nothing has landed in /inputs yet.

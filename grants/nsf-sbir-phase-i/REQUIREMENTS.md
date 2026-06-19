@@ -1,36 +1,28 @@
-# NSF SBIR Phase I (NSF 26-510) — Requirements Checklist
+# What NSF SBIR Phase I (NSF 26-510) requires
 
-_Status: drafting prep. Sourced from NSF SBIR program pages; confirm every item against the official solicitation [NSF 26-510](https://www.nsf.gov/funding/opportunities/small-business-innovation-research-small-business-technology/nsf26-510/solicitation) before submission._
+Drafting prep. I pulled this from NSF's own program pages. Check every line against the actual solicitation, [NSF 26-510](https://www.nsf.gov/funding/opportunities/small-business-innovation-research-small-business-technology/nsf26-510/solicitation), before anything goes in.
 
-## The two-step process (NSF is unique)
-1. **Project Pitch** (REQUIRED first; free; ~3-page online form). NSF responds (often ~3 weeks) **invite** or **decline**. Only if invited may you submit a full proposal.
-2. **Full Proposal** — by invitation, due in a window: **Jul 27 2026 / Nov 4 2026 / Mar 4 2027**. Realistic target = **Nov 4** (allows pitch + writing time).
+## NSF runs in two steps
+NSF doesn't let you submit a full proposal cold. First you file a Project Pitch, which is free and short. NSF reads it and either invites a full proposal or turns you away, usually within about three weeks. Only an invite gets you to step two.
 
-Source: [NSF How to Submit](https://seedfund.nsf.gov/how-to-submit/), [NSF Full Proposal](https://seedfund.nsf.gov/apply/full-proposal/)
+Full proposals are due in set windows: 27 July 2026, 4 November 2026, and 4 March 2027. The realistic target is 4 November, which leaves room to get the pitch invited and then write properly. Sources: [how to submit](https://seedfund.nsf.gov/how-to-submit/), [full proposal](https://seedfund.nsf.gov/apply/full-proposal/).
 
-## Step 1 — Project Pitch components (to draft offline, then CEO pastes into portal)
-- [ ] **The Technology Innovation** — what's technically innovative; the "deep technology" / R&D risk.
-- [ ] **The Technical Objectives & Challenges** — the hard unknowns Phase I will de-risk.
-- [ ] **The Market Opportunity** — customer, market size, why now.
-- [ ] **The Company & Team** — why this team can execute.
-- [ ] Pick the most relevant **topic area / Program Director** (broad "deep tech" topics; no government customer required).
+## Step 1, the Project Pitch
+Four sections, drafted offline and pasted into the portal. The technology innovation, meaning what's genuinely new and where the research risk sits. The technical objectives and challenges, meaning the unknowns Phase I will settle. The market opportunity, meaning who buys it and why now. The company and team. You also pick the topic area that fits best. NSF's topics are broad, and no government customer is required.
 
-## Step 2 — Full Proposal components (if invited)
-| Component | Requirement | Source |
-|-----------|-------------|--------|
-| Cover Sheet | Via Research.gov | [NSF](https://seedfund.nsf.gov/solicitation-proposal/) |
-| **Project Description** | **10–15 pages**, with required headers: **Intellectual Merit**, **Broader Impacts**, **Commercialization Potential**, **Company/Team** (Company/Team ≤1 page) | [Project Description Instructions](https://seedfund.nsf.gov/solicitation-project-description/) |
-| **Biographical Sketches** | One per PI + each Senior/Key Person; **must be generated in SciENcv** | [NSF](https://seedfund.nsf.gov/solicitation-proposal/) |
-| **Budget + Budget Justification** | Up to $305K; Budget Justification ≤5 pages | [NSF](https://seedfund.nsf.gov/solicitation-proposal/) |
-| SBIR/STTR Questionnaire | Certifies eligibility (ownership, size) | [NSF](https://seedfund.nsf.gov/solicitation-proposal/) |
-| Current & Pending Support | For PI/key personnel (SciENcv) | [NSF](https://seedfund.nsf.gov/solicitation-proposal/) |
-| Letters of Intent (customer/partner) | Recommended for commercialization evidence | [NSF](https://seedfund.nsf.gov/solicitation-proposal/) |
+## Step 2, the full proposal (only if invited)
+| Component | What NSF wants | Source |
+|-----------|----------------|--------|
+| Cover Sheet | Filed in Research.gov | [NSF](https://seedfund.nsf.gov/solicitation-proposal/) |
+| Project Description | 10 to 15 pages, with required headers: Intellectual Merit, Broader Impacts, Commercialization Potential, and Company/Team (the Company/Team part caps at one page) | [Project Description instructions](https://seedfund.nsf.gov/solicitation-project-description/) |
+| Biographical Sketches | One per PI and per senior/key person, and they have to come out of SciENcv | [NSF](https://seedfund.nsf.gov/solicitation-proposal/) |
+| Budget and Budget Justification | Up to $305K total; the justification caps at five pages | [NSF](https://seedfund.nsf.gov/solicitation-proposal/) |
+| SBIR/STTR Questionnaire | Certifies ownership and size | [NSF](https://seedfund.nsf.gov/solicitation-proposal/) |
+| Current and Pending Support | For the PI and key people, via SciENcv | [NSF](https://seedfund.nsf.gov/solicitation-proposal/) |
+| Letters of Intent | Customer or partner letters; not required but they help the commercialization case | [NSF](https://seedfund.nsf.gov/solicitation-proposal/) |
 
-## Eligibility (Alef status)
-- US >50% individual-owned ✅ (CEO-confirmed) · <500 employees ✅ (assumed) · SAM.gov active ✅ · UEI exists ✅
-- **PI primary employment must be with the company** at time of award (≥ the required commitment) — CONFIRM who the PI will be.
-- Registrations needed before full-proposal submission: **SAM.gov (have), Research.gov account, SciENcv, Login.gov** (Login.gov status unconfirmed).
+## Where Alef stands on eligibility
+Majority US-individual ownership is confirmed. Under 500 employees, assumed but I want the real number. SAM.gov is active and a UEI exists. One catch worth flagging now: the PI has to be primarily employed by Alef when the award starts, so we need to settle who that is. Before a full proposal can go in, the registrations have to be live: SAM.gov (done), a Research.gov account, SciENcv, and Login.gov (status unknown).
 
-## What I (agent) will draft vs. what I need from you
-- I draft: all narrative (innovation, objectives, market, intellectual merit, broader impacts, commercialization), budget justification, and a Project Pitch ready to paste.
-- I need from you: the **project concept** to anchor on (see ../_shared/INPUTS-NEEDED.md), team/PI info, financial/rate data for budget, any customer LOIs.
+## Who does what
+I write the narrative, all of it, plus the budget justification and a paste-ready pitch. You give me the battery concept, the team and PI details, the financial numbers for the budget, and any customer letters.

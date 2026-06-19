@@ -1,42 +1,38 @@
-# NSF SBIR Phase I — PROJECT PITCH (DRAFT v1)
+# NSF SBIR Phase I Project Pitch (draft v1)
 
-_Status: DRAFT for CEO review. The Project Pitch is NSF's required first step (free, ~3 pages, submitted in the NSF portal). NSF replies invite/decline, usually ~3 weeks. Only if invited do we write the full proposal._
-_Bracketed [[...]] items are facts only you can confirm — I have NOT invented them. Everything else is drafted for your edit/approval. Author of record: CEO, Alef Aeronautics._
+Draft for the CEO to read and mark up. The pitch is NSF's gate: a short online form, about three pages, that you submit before you're allowed to write a full proposal. NSF reads it and says yes or no, usually inside three weeks. No pitch invite, no proposal.
 
-**Anchor concept (CEO-selected):** Energy/battery architecture for a vehicle that must perform as BOTH a road-legal automobile AND an electric VTOL aircraft.
+Anything in [[double brackets]] is a fact only you can give me. I left those blank on purpose instead of guessing. You are the author of record, so rewrite anything that doesn't sound like you.
 
----
-
-## Topic area selection
-Suggested NSF topic area: **Advanced Energy & Power Technologies / Advanced Materials & Manufacturing** (energy storage systems). _Confirm exact topic from the NSF 26-510 topic list at pitch time._
-
-## 1. The Technology Innovation
-Alef is developing a **dual-mode electric energy storage architecture** that allows a single vehicle to operate as a road-legal car and as a vertical-takeoff-and-landing (VTOL) aircraft. The core innovation is a battery system that simultaneously satisfies two historically conflicting sets of requirements:
-
-- **Road driving** rewards high *specific energy* (range), long cycle life, low cost, automotive crash safety, and thermal management at modest continuous power.
-- **VTOL flight** demands very high *specific power* (W/kg) for hover and climb, high sustained discharge rates, aggressive heat rejection during power bursts, and minimum mass, with flight-critical reliability margins.
-
-Conventional packs optimize for one regime; doing both typically means carrying two systems' worth of mass. Our innovation is a **[[hybrid / reconfigurable]] pack architecture** that partitions energy and power functions — combining high-energy and high-power elements with a control and thermal strategy that delivers flight-grade burst power without sacrificing automotive range, and without doubling weight. This is a deep-technology problem at the intersection of electrochemistry, power electronics, thermal engineering, and safety. _Specific approach details to confirm with CEO: [[cell chemistries/segmentation, topology, thermal method]]._
-
-## 2. The Technical Objectives & Challenges
-Phase I will de-risk whether a single architecture can meet both duty cycles within a viable mass budget. Objectives:
-
-1. **Define the dual-mode requirements envelope** — quantify the energy (drive) and peak/sustained power + thermal (hover/climb) demands of the Model A duty cycle. _Inputs from CEO: [[representative drive + flight power profiles]]._
-2. **Model and trade candidate architectures** (e.g., hybrid energy/power cell topologies, reconfigurable interconnection, thermal-management options) against specific energy, specific power, mass, safety, and cost.
-3. **Bench-validate a representative module** under a combined drive-then-hover duty cycle; measure achievable specific power during hover bursts, temperature rise, and energy retained for driving.
-4. **Assess abuse/safety behavior** relevant to dual-use (automotive crash + flight-critical) and identify the BMS controls needed.
-
-**Key challenge / risk to retire:** demonstrating flight-grade burst power and thermal control **and** automotive-grade range from one architecture without a prohibitive mass penalty — the central unknown that determines feasibility.
-
-## 3. The Market Opportunity
-The Model A targets the emerging flying-car / advanced air mobility (AAM) market; Alef reports **~3,500 pre-orders** (small, refundable deposits — a demand signal, not booked revenue). Beyond Alef's own vehicle, a validated dual-mode energy architecture is applicable to the broader **eVTOL/AAM** sector and to **high-power electric vehicle** applications where burst power and energy must coexist. _Market sizing figures to be sourced/confirmed before full proposal; will cite reputable sources rather than estimate._
-
-## 4. The Company & Team
-Alef Aeronautics (San Mateo, CA) is a seed-stage R&D company developing Model A, a 100% electric vehicle that is both a road-legal automobile and a VTOL aircraft. Alef holds an **FAA Special Airworthiness Certificate (Experimental)** for test flights and is backed by Tim Draper / the Draper network. The company is **>50% owned by U.S. individuals** and has **[[headcount]]** employees (<500). Proposed Principal Investigator: **[[PI name + title]]** ([[relevant credentials]]). Key technical personnel: **[[names/roles]]**.
+Anchor concept you picked: the battery. One pack that has to work both as a car battery and as an aircraft battery.
 
 ---
 
-### Notes for CEO (not part of the pitch)
-- NSF pitch fields have per-section limits (a few thousand characters each); v1 is sized to trim easily.
-- I avoided inventing any spec, chemistry, headcount, market number, or credential — those are the bracketed items.
-- On your APPROVED + bracket fills, I'll finalize the pitch text for you to paste into the NSF portal, and start the full-proposal Project Description and NASA AERO.9/AERO.10 adaptation in parallel.
+## Topic area
+Best fit looks like Advanced Energy and Power Technologies (energy storage). Pin the exact topic against the NSF 26-510 list when you submit, since the names shift year to year.
+
+## 1. The technology innovation
+Alef is building one battery that has to do two jobs that normally need two different batteries. On the road the pack acts like a car battery. It wants range, long life, low cost, and it only delivers moderate power over a long stretch. The moment that same car lifts off and hovers, the pack has to behave like an aircraft battery instead: dump a lot of power right now, stay light, and throw off heat fast while it does it. Nobody sells a single pack that does both jobs well. The lazy answer is to carry extra cells, roughly two batteries' worth, which guts your road range and your flight time at the same time.
+
+Our approach is a [[hybrid / reconfigurable]] pack that separates the energy job from the power job inside one system. High-energy cells hold the driving range. High-power elements cover the hover and climb spikes. A control and cooling scheme stitches them together so the car gets aircraft-grade power when it needs it and isn't dragging dead weight the rest of the time. The hard problems all sit at the seams between electrochemistry, power electronics, cooling, and safety. That is where the Phase I risk lives. [[cell chemistries / segmentation, topology, thermal method to confirm]]
+
+## 2. Technical objectives and challenges
+Phase I exists to answer one question. Can a single architecture cover both duty cycles without a weight penalty that kills the product? Six months of work:
+
+1. Get the real numbers. Figure out what the Model A actually pulls while driving versus hovering and climbing, in both power and heat. [[need representative drive and flight power profiles]]
+2. Build a handful of candidate architectures on paper and run a real trade study against weight, specific power, specific energy, safety, and cost. No hand-waving.
+3. Take the best one to the bench as a single module and run it through a drive-then-hover cycle. Measure the burst power it actually puts out, how hot it gets, and how much driving range is left when the hover is done.
+4. Break it on purpose. Dual use means it has to survive a car crash and stay trustworthy in flight, so we find out how it fails and what the battery management system has to watch for.
+
+The whole thing hinges on one number: the mass penalty. If you can't get flight-grade burst power and keep it cool while still holding road range from one pack, the concept falls apart. Phase I is the cheap place to learn that.
+
+## 3. Market opportunity
+Alef holds about 3,500 pre-orders on the Model A. Those are small refundable deposits, so read them as interest, not money in the bank. For a battery program the more useful point is that this same two-jobs-one-pack problem shows up at every eVTOL and air-taxi company chasing this market, and in fast-charging high-power EVs besides. Crack it once and the result travels. (Hard market-size dollars get pulled from real sources for the full proposal. I'm not going to invent them here.)
+
+## 4. Company and team
+Alef Aeronautics is a seed-stage company in San Mateo, California, building the Model A, a fully electric vehicle that is both street-legal and able to take off vertically. The company holds an FAA Special Airworthiness Certificate in the Experimental category and flies test articles under it. Tim Draper and his network back it. Ownership is majority US individuals, and headcount is [[X]], well under the 500-employee SBIR cap. The PI would be [[name, title, and what they've actually built before]]. Core technical staff: [[names and roles]].
+
+---
+
+### For the CEO, not part of the pitch
+Each pitch field has a character cap of a few thousand characters, so this draft runs a little long on purpose and trims down easily. I didn't put a single invented spec, chemistry, headcount, or market number in here. Those are the bracketed gaps. Once you approve the text and fill the brackets, I'll lock the pitch for you to paste into the portal and start the full Project Description and the NASA version in parallel.
