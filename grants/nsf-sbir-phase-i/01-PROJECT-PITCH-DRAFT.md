@@ -1,40 +1,38 @@
-# NSF SBIR Phase I Project Pitch (draft v2)
+# NSF SBIR Phase I Project Pitch (draft v3)
 
-Draft for the CEO. This replaces v1. The v1 draft was built around battery architecture, which was wrong: Alef buys cells off the shelf and builds simple packs. The real innovation is the flight architecture, so the whole pitch now sits on the hover-to-airplane transition.
+Draft for the CEO. This is the current version. Concept and research focus are now set: the innovation is the hover-to-airplane transition, and the Phase I research targets the control and stability of that maneuver.
 
-The pitch is NSF's gate. It's a short online form you submit before you're allowed to write a full proposal. NSF reads it and either invites a proposal or turns you down, usually inside three weeks.
+The pitch is NSF's gate. It's a short online form you submit before you can write a full proposal. NSF reads it and invites a proposal or declines, usually within three weeks.
 
-Anything in [[double brackets]] is a fact or decision only you can give me. I left those open instead of guessing.
-
-Anchor concept: the rotorcraft-to-airplane transition, where the car body rotates 90 degrees into a box-wing and cruise flight uses roughly 7 times less energy than hovering.
+Anything in [[double brackets]] is a fact only you can confirm. I left those open instead of guessing.
 
 ---
 
 ## Topic area
-Best fit looks like Advanced Manufacturing, or an aerospace/robotics topic, depending on how NSF 26-510 splits its list this cycle. Confirm the exact topic when you submit.
+Best fit is an aerospace, robotics, or advanced-manufacturing topic, depending on how NSF 26-510 splits its list this cycle. Confirm the exact topic at submission.
 
 ## 1. The technology innovation
-The Model A flies in two modes. It lifts off and hovers like a multirotor on eight rotors mounted under a mesh top surface. Once it's high enough, the entire car body rolls 90 degrees so its left and right sides become a box-wing biplane, while a gimbaled cabin spins the opposite way to keep the driver upright and facing forward. In that airplane mode the vehicle flies on its wings instead of forcing all its lift from the rotors. Wing-borne cruise draws on the order of [[~7x]] less energy than hovering, and that single fact is what lets the car carry a useful flight range on an ordinary off-the-shelf battery.
+The Model A flies in two modes. It lifts off and hovers like a multirotor on eight rotors set under a mesh top surface. Once it's high enough, the entire car body rolls 90 degrees so its sides become a box-wing biplane, while a gimbaled cabin counter-rotates to keep the driver upright and facing forward. In airplane mode the vehicle flies on its wings instead of forcing all of its lift from the rotors, and wing-borne cruise draws roughly [[~7x]] less energy than hovering. That efficiency is what lets the car carry real flight range on an ordinary off-the-shelf battery. Alef does not develop cells or chemistry; it buys cells and builds simple packs. The novel engineering is the transition and the rotating-body wing that makes the efficiency real.
 
-Alef does not develop cells or battery chemistry. It buys cells and builds straightforward packs. The novel engineering is the transition maneuver and the rotating-body wing that makes the efficiency gain real. No folding wings, no separate aircraft structure, the car body is the wing.
+## 2. The technical objectives and challenges
+The transition from hover to wing-borne flight is the hardest and most safety-critical phase of the flight. During the 90-degree roll the vehicle hands its lift off from the rotors to the wings, its aerodynamics change moment to moment, and a gust at the wrong instant can put it outside a safe state. The vehicle has flown under an FAA Special Airworthiness Certificate (Experimental), so the maneuver is possible. What is not yet established is a validated understanding of when it is safe and a control strategy that holds it stable every time, including in disturbed air. That is the gap Phase I closes.
 
-## 2. Technical objectives and challenges
-The transition from hover to wing-borne flight is the hardest and most safety-critical part of the whole flight. The vehicle has flown under an FAA Special Airworthiness Certificate (Experimental), so basic feasibility is proven, but [[what is still open: pick the real research gap]]. Phase I would target that gap. Likely work, to be narrowed with the CEO:
+Objectives for the six months:
 
-1. Model the transition dynamics through the 90-degree roll and define the safe airspeed and altitude envelope for it.
-2. Develop and test the control strategy that keeps the vehicle stable through the maneuver, including under gusts and crosswinds.
-3. Quantify and improve the cruise aerodynamic efficiency, including how the eight rotors and the mesh surface interfere with the box-wing. This is what protects and grows the 7x.
-4. Measure the energy and altitude lost during the transition itself and find ways to cut it.
+1. Build a dynamic model of the vehicle through the full 90-degree transition that captures the shift from rotor-borne to wing-borne lift, the counter-rotating cabin, and the coupling between the rotors and the wing.
+2. Define the safe transition envelope, meaning the range of airspeed and altitude where the maneuver can be completed with enough control margin.
+3. Develop and test transition control laws in simulation, then stress them against gusts, crosswinds, and off-nominal starting conditions.
+4. Validate the model against [[flight-test data from the experimental aircraft]].
 
-The risk to retire in Phase I: [[the one specific thing the CEO says is genuinely unsolved]]. The existing flying prototype is evidence the approach works, which strengthens the proposal rather than weakening it, as long as the research question stays on what isn't yet characterized, optimized, or made robust.
+The risk to retire: whether a control strategy exists that keeps the vehicle stable and inside its structural and aerodynamic limits across the airspeed, altitude, and gust conditions a real flight will see. The flying prototype is the evidence base for this work, which makes the proposal stronger, since the research is about characterizing and guaranteeing the maneuver rather than attempting it for the first time. Phase I sets up a Phase II that takes the validated control approach to a full-envelope, hardware-in-the-loop demonstration.
 
-## 3. Market opportunity
-Alef holds about 3,500 pre-orders on the Model A. Those are small refundable deposits, so read them as demand, not revenue. The transition and box-wing work also carries to other eVTOL and air-taxi designs chasing efficient forward flight, since hovering the whole way is what kills range across the sector. (Hard market-size numbers come from real sources in the full proposal, not from me here.)
+## 3. The market opportunity
+Alef holds about 3,500 pre-orders on the Model A. Those are small refundable deposits, so read them as demand, not revenue. The transition-control work also carries to other eVTOL and air-taxi designs, because the hover-to-cruise handoff is the common safety and efficiency bottleneck across the sector. Hard market-size numbers come from real sources in the full proposal, not from me here.
 
-## 4. Company and team
-Alef Aeronautics is a seed-stage company in San Mateo, California, building the Model A, a fully electric vehicle that drives on the road and takes off vertically. The company holds an FAA Special Airworthiness Certificate (Experimental) and has flown test articles under it. Tim Draper and his network back it. Ownership is majority US individuals, and headcount is [[X]], under the 500-employee SBIR cap. The PI would be [[name, title, and what they've built before]]. Core technical staff: [[names and roles]].
+## 4. The company and team
+Alef Aeronautics is a seed-stage company in San Mateo, California, building the Model A, a fully electric vehicle that drives on the road and takes off vertically. The company holds an FAA Special Airworthiness Certificate (Experimental) and has flown test articles under it. Tim Draper and his network back it. Ownership is majority US individuals, and headcount is [[X]], under the 500-employee SBIR cap. The PI would be [[name, title, and what they have built before]]. Core technical staff: [[names and roles]].
 
 ---
 
 ### For the CEO, not part of the pitch
-The single most important thing I need from you is in section 2: what about the transition is genuinely still an open engineering problem? Control and stability, aerodynamic efficiency, or transition energy loss are the usual candidates. Pick one (or tell me the real one) and I'll write the research plan around it. Everything else here is ready once you fill the brackets.
+Concept and focus are set. To turn this into the final paste-ready pitch I still need, from you: confirmation of the 7x figure, whether any flight-test data can back the model (objective 4), the PI name and credentials, and the headcount. None of those block your approval of the framing; they just fill the brackets.
