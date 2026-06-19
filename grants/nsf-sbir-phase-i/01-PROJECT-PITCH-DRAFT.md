@@ -1,38 +1,40 @@
-# NSF SBIR Phase I Project Pitch (draft v1)
+# NSF SBIR Phase I Project Pitch (draft v2)
 
-Draft for the CEO to read and mark up. The pitch is NSF's gate: a short online form, about three pages, that you submit before you're allowed to write a full proposal. NSF reads it and says yes or no, usually inside three weeks. No pitch invite, no proposal.
+Draft for the CEO. This replaces v1. The v1 draft was built around battery architecture, which was wrong: Alef buys cells off the shelf and builds simple packs. The real innovation is the flight architecture, so the whole pitch now sits on the hover-to-airplane transition.
 
-Anything in [[double brackets]] is a fact only you can give me. I left those blank on purpose instead of guessing. You are the author of record, so rewrite anything that doesn't sound like you.
+The pitch is NSF's gate. It's a short online form you submit before you're allowed to write a full proposal. NSF reads it and either invites a proposal or turns you down, usually inside three weeks.
 
-Anchor concept you picked: the battery. One pack that has to work both as a car battery and as an aircraft battery.
+Anything in [[double brackets]] is a fact or decision only you can give me. I left those open instead of guessing.
+
+Anchor concept: the rotorcraft-to-airplane transition, where the car body rotates 90 degrees into a box-wing and cruise flight uses roughly 7 times less energy than hovering.
 
 ---
 
 ## Topic area
-Best fit looks like Advanced Energy and Power Technologies (energy storage). Pin the exact topic against the NSF 26-510 list when you submit, since the names shift year to year.
+Best fit looks like Advanced Manufacturing, or an aerospace/robotics topic, depending on how NSF 26-510 splits its list this cycle. Confirm the exact topic when you submit.
 
 ## 1. The technology innovation
-Alef is building one battery that has to do two jobs that normally need two different batteries. On the road the pack acts like a car battery. It wants range, long life, low cost, and it only delivers moderate power over a long stretch. The moment that same car lifts off and hovers, the pack has to behave like an aircraft battery instead: dump a lot of power right now, stay light, and throw off heat fast while it does it. Nobody sells a single pack that does both jobs well. The lazy answer is to carry extra cells, roughly two batteries' worth, which guts your road range and your flight time at the same time.
+The Model A flies in two modes. It lifts off and hovers like a multirotor on eight rotors mounted under a mesh top surface. Once it's high enough, the entire car body rolls 90 degrees so its left and right sides become a box-wing biplane, while a gimbaled cabin spins the opposite way to keep the driver upright and facing forward. In that airplane mode the vehicle flies on its wings instead of forcing all its lift from the rotors. Wing-borne cruise draws on the order of [[~7x]] less energy than hovering, and that single fact is what lets the car carry a useful flight range on an ordinary off-the-shelf battery.
 
-Our approach is a [[hybrid / reconfigurable]] pack that separates the energy job from the power job inside one system. High-energy cells hold the driving range. High-power elements cover the hover and climb spikes. A control and cooling scheme stitches them together so the car gets aircraft-grade power when it needs it and isn't dragging dead weight the rest of the time. The hard problems all sit at the seams between electrochemistry, power electronics, cooling, and safety. That is where the Phase I risk lives. [[cell chemistries / segmentation, topology, thermal method to confirm]]
+Alef does not develop cells or battery chemistry. It buys cells and builds straightforward packs. The novel engineering is the transition maneuver and the rotating-body wing that makes the efficiency gain real. No folding wings, no separate aircraft structure, the car body is the wing.
 
 ## 2. Technical objectives and challenges
-Phase I exists to answer one question. Can a single architecture cover both duty cycles without a weight penalty that kills the product? Six months of work:
+The transition from hover to wing-borne flight is the hardest and most safety-critical part of the whole flight. The vehicle has flown under an FAA Special Airworthiness Certificate (Experimental), so basic feasibility is proven, but [[what is still open: pick the real research gap]]. Phase I would target that gap. Likely work, to be narrowed with the CEO:
 
-1. Get the real numbers. Figure out what the Model A actually pulls while driving versus hovering and climbing, in both power and heat. [[need representative drive and flight power profiles]]
-2. Build a handful of candidate architectures on paper and run a real trade study against weight, specific power, specific energy, safety, and cost. No hand-waving.
-3. Take the best one to the bench as a single module and run it through a drive-then-hover cycle. Measure the burst power it actually puts out, how hot it gets, and how much driving range is left when the hover is done.
-4. Break it on purpose. Dual use means it has to survive a car crash and stay trustworthy in flight, so we find out how it fails and what the battery management system has to watch for.
+1. Model the transition dynamics through the 90-degree roll and define the safe airspeed and altitude envelope for it.
+2. Develop and test the control strategy that keeps the vehicle stable through the maneuver, including under gusts and crosswinds.
+3. Quantify and improve the cruise aerodynamic efficiency, including how the eight rotors and the mesh surface interfere with the box-wing. This is what protects and grows the 7x.
+4. Measure the energy and altitude lost during the transition itself and find ways to cut it.
 
-The whole thing hinges on one number: the mass penalty. If you can't get flight-grade burst power and keep it cool while still holding road range from one pack, the concept falls apart. Phase I is the cheap place to learn that.
+The risk to retire in Phase I: [[the one specific thing the CEO says is genuinely unsolved]]. The existing flying prototype is evidence the approach works, which strengthens the proposal rather than weakening it, as long as the research question stays on what isn't yet characterized, optimized, or made robust.
 
 ## 3. Market opportunity
-Alef holds about 3,500 pre-orders on the Model A. Those are small refundable deposits, so read them as interest, not money in the bank. For a battery program the more useful point is that this same two-jobs-one-pack problem shows up at every eVTOL and air-taxi company chasing this market, and in fast-charging high-power EVs besides. Crack it once and the result travels. (Hard market-size dollars get pulled from real sources for the full proposal. I'm not going to invent them here.)
+Alef holds about 3,500 pre-orders on the Model A. Those are small refundable deposits, so read them as demand, not revenue. The transition and box-wing work also carries to other eVTOL and air-taxi designs chasing efficient forward flight, since hovering the whole way is what kills range across the sector. (Hard market-size numbers come from real sources in the full proposal, not from me here.)
 
 ## 4. Company and team
-Alef Aeronautics is a seed-stage company in San Mateo, California, building the Model A, a fully electric vehicle that is both street-legal and able to take off vertically. The company holds an FAA Special Airworthiness Certificate in the Experimental category and flies test articles under it. Tim Draper and his network back it. Ownership is majority US individuals, and headcount is [[X]], well under the 500-employee SBIR cap. The PI would be [[name, title, and what they've actually built before]]. Core technical staff: [[names and roles]].
+Alef Aeronautics is a seed-stage company in San Mateo, California, building the Model A, a fully electric vehicle that drives on the road and takes off vertically. The company holds an FAA Special Airworthiness Certificate (Experimental) and has flown test articles under it. Tim Draper and his network back it. Ownership is majority US individuals, and headcount is [[X]], under the 500-employee SBIR cap. The PI would be [[name, title, and what they've built before]]. Core technical staff: [[names and roles]].
 
 ---
 
 ### For the CEO, not part of the pitch
-Each pitch field has a character cap of a few thousand characters, so this draft runs a little long on purpose and trims down easily. I didn't put a single invented spec, chemistry, headcount, or market number in here. Those are the bracketed gaps. Once you approve the text and fill the brackets, I'll lock the pitch for you to paste into the portal and start the full Project Description and the NASA version in parallel.
+The single most important thing I need from you is in section 2: what about the transition is genuinely still an open engineering problem? Control and stability, aerodynamic efficiency, or transition energy loss are the usual candidates. Pick one (or tell me the real one) and I'll write the research plan around it. Everything else here is ready once you fill the brackets.

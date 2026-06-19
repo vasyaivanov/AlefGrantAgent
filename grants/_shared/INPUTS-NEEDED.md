@@ -2,12 +2,12 @@
 
 I'll write all the narrative. To write it honestly I need the facts below. Drop documents into /inputs and answer the questions. I won't invent specs, financials, or credentials, so wherever you don't fill a gap, the draft keeps a visible placeholder.
 
-## The project concept (decided)
-You picked the battery: one architecture that gives the Model A useful road range and the power and endurance to fly. FAA is parked. The pitch draft lives at ../nsf-sbir-phase-i/01-PROJECT-PITCH-DRAFT.md.
+## The project concept (corrected 19 Jun 2026)
+The battery framing was wrong. Alef buys cells off the shelf and builds simple packs, so there's no battery R&D to fund. The real innovation is the flight architecture: the car body rotates 90 degrees from hover mode into a box-wing airplane, and wing-borne cruise uses roughly 7x less energy than hovering. The pitch (v2) is now built on the transition. It lives at ../nsf-sbir-phase-i/01-PROJECT-PITCH-DRAFT.md.
 
-Two specifics still needed before I can lock the pitch and the narrative. Correct me rather than let me guess:
-- [[Battery approach]]. Hybrid energy plus power cells? A reconfigurable topology? Which chemistries? How is it cooled?
-- [[Power profiles]]. Even rough numbers for what the Model A draws driving versus during hover and climb, and for how long.
+The one thing I still need to lock the pitch:
+- [[The real research gap in the transition]]. The vehicle already flies under an FAA Experimental cert, so SBIR needs a specific unsolved problem. The usual candidates: transition control and stability, box-wing aerodynamic efficiency (including rotor and mesh interference), or energy and altitude lost during the maneuver. Tell me which is genuinely open.
+- [[Test data]] from the experimental aircraft we can cite or build models against, if any can be shared.
 
 ## Documents for /inputs
 - Team bios or CVs for the proposed PI and the key technical people. SciENcv biosketches get built from these.

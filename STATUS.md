@@ -15,6 +15,7 @@ Step (c), preparation. We're pursuing NSF SBIR Phase I now and writing the NASA 
 - Majority owned by US individuals, so the SBIR ownership test passes.
 - SAM.gov registration is active, which means a UEI already exists. I'll need the exact number when a form asks for it.
 - Open items: exact headcount, and whether a Login.gov account exists.
+- Concept corrected 19 Jun: no battery R&D (cells are off-the-shelf). The fundable innovation is the hover-to-airplane transition, where the body rotates 90 degrees into a box-wing and cruise uses ~7x less energy than hovering. Pitch rewritten to v2. Still need the specific unsolved research gap in the transition.
 
 ## Pipeline
 Full ranked list of 20 with sources sits in grants/_discovery/opportunities.md.
