@@ -1,355 +1,191 @@
-# Architecture — iPhone app + cheap backend, SF Bay Area
+# Architecture — plain language
 
-Design date: 17 September 2026. Companion to the feasibility assessments in this folder.
-No code; this is the design and the hosting decisions.
+Design date: 17 September 2026. SF Bay Area MVP. Rewritten for clarity; supersedes the earlier
+version of this file.
 
 ---
 
-## The one decision everything else follows from
+## The whole thing in one sentence
 
-**The LLM never touches the request path.**
+**A robot collects events twice a day. The app just reads what the robot collected.**
 
-A background job crawls and extracts on a schedule and writes finished rows to a database. When
-the phone opens, the backend does a database read and returns JSON. That's it.
+The robot is a Python script on a timer. It visits event websites, uses an LLM to turn messy
+pages into clean records, and saves them to a database. Hours later a user opens the app and the
+backend hands over rows that are already sitting there. **No crawling and no LLM happen while the
+user waits** — that is what makes it fast and cheap.
 
-Everything cheap about this design comes from that rule:
+The one exception is photos and reviews. Those come from licensed APIs that forbid storing their
+data, so they get fetched live when a user taps an event. That's step 7.
 
-- The phone request is a single indexed query — **sub-100ms**, no LLM latency, no per-user
-  inference cost, no rate limits, no timeouts.
-- The LLM work becomes a **batch** job with no latency requirement — so it gets the Batch API's
-  50% discount and can retry freely.
-- The read API becomes so trivial that **any free tier can host it.**
-- Limiting to one metro means there is exactly **one** precompute job. This is the real reason to
-  start with the Bay Area only.
+---
 
-So the answer to "should we have a constant background process so responses are instant" is
-**yes — but scheduled, not constant.** A permanently running process bills continuously on every
-platform because it never scales to zero. A cron job that runs four times a day for twenty
-minutes is effectively free.
+## The five places everything runs
 
-Three different cadences, three different costs:
-
-| Job | Cadence | Cost |
+| | Place | What it is |
 |---|---|---|
-| Full crawl and LLM extraction | 2×/day | The only real spend |
-| Freshness check on *today's* events (HTTP ETag / If-Modified-Since, no LLM) | every 2–3 hours | ~$0 |
-| "Hasn't happened yet" filter | at read time, from the stored start time | $0 |
+| **A** | The user's iPhone | The app. Swift/SwiftUI. Shows the list, applies filters, displays photos and reviews |
+| **B** | GitHub Actions | A free computer that wakes on a schedule, runs your Python crawler, shuts down. This is the robot |
+| **C** | Neon (hosted Postgres) | Where collected events live. Always on, free at this size |
+| **D** | Google Cloud Run | A small always-available Python program that answers the app by reading the database |
+| **E** | Outside companies | Anthropic/Google/OpenAI for the LLM. Google Places/Tripadvisor for photos and reviews |
 
-That last row matters for your open-the-app requirement: *"today, not yet started"* is a `WHERE`
-clause, not a job.
+Nothing here is a server you rent, patch, or pay for by the hour.
 
 ---
 
-## Hosting
+## The seven steps
 
-### The recommendation
+| # | What happens | Where it runs | Language | Cost | Alternative, same step |
+|---|---|---|---|---|---|
+| 1 | Timer fires | GitHub Actions | YAML | $0 | Google Cloud Scheduler — $0 |
+| 2 | Download ~800 event pages | GitHub Actions | Python | $0 (2,000 free min/mo) | Cloud Run Job — $0 |
+| 3 | **Turn pages into event records ← LLM** | Anthropic API | Python calls it | ~$62/mo | Gemini Flash-Lite ~$6 · GPT-5-nano ~$4 |
+| 4 | Save events | Neon Postgres | SQL | $0 | Supabase $0 · GitHub Pages JSON $0 |
+| 5 | App asks for today's events | iPhone | Swift | $99/yr Apple | Mobile web app (PWA) — $0 |
+| 6 | Read database, return JSON | Google Cloud Run | Python | $0 to ~10k users/day | Render $0 · Heroku $5/mo |
+| 7 | Fetch photos + reviews | Google Places API | Python calls it | $0 up to 1,000/mo | Tripadvisor 5,000 free · Foursquare 500 free |
 
-| Component | Service | Why | $/mo |
+**On Heroku, since you asked:** it works, but has had **no free tier since November 2022**. The
+cheapest Eco dyno is $5/month and sleeps when idle. Cloud Run does the same job for $0.
+
+---
+
+## How it comes together
+
+### 4:00 AM — nobody is using the app
+
+1. **GitHub Actions wakes up.** A schedule in `.github/workflows/crawl.yml` says "run at 4am and
+   4pm". GitHub starts a free Linux machine.
+2. **Your Python script runs.** It reads ~800 Bay Area sources from the database and downloads
+   their pages. About **40% already contain machine-readable event data** (schema.org JSON-LD,
+   which sites add for Google) — parsed free, **no LLM needed**.
+3. **The other 60% go to the LLM.** Messy pages are sent with "return this page as JSON with
+   these exact fields". Out comes title, start time, venue, price, ticket link, category **and
+   language**. This is **LLM use #1** and the only real cost in the system.
+4. **Results are cleaned and saved.** Python matches venues to real places, drops duplicates,
+   writes rows to Neon. The machine shuts down. Runtime: ~20 minutes.
+
+### 7:30 PM — a user opens the app in the Mission
+
+1. **One request.** iPhone → Cloud Run: "events starting between now and midnight, within 15
+   miles of this GPS point."
+2. **One database query.** Indexed lookup on start time plus a geography index for the radius.
+   **Under 100ms.** No crawling, no LLM.
+3. **The app filters locally.** Date, time, category and language are applied on the phone — the
+   result set is small enough that this is instant and free.
+4. **User taps an event.** Cloud Run calls **Google Places** with the venue's saved place ID and
+   gets rating, up to five reviews, and photos. Displayed with attribution and **not saved**,
+   which is what their terms require.
+
+**The key idea:** the slow expensive work happened at 4am when nobody cared. The user's request
+only reads what was already there.
+
+---
+
+## Where the LLM is used
+
+**Exactly two places, and one is optional.**
+
+- **LLM use #1 — turning pages into event records (step 3).** Required. It replaces writing a
+  custom parser for each of 800 sites. ~21,000 pages/month.
+- **LLM use #2 — translation (optional).** Since you want Chinese, Russian, Spanish and Arabic,
+  you may want English summaries. One extra field in the same call, so nearly free. Skip at
+  first — original-language display is often what those users want.
+- **Nowhere else.** Not for search, not for filtering, not for photos or reviews.
+
+### Which LLM — all options
+
+| Model | In / out per 1M tokens | Your cost/month | Verdict |
 |---|---|---|---|
-| Read API | **Google Cloud Run** | 2M requests/month always free, scales to zero, no credit-card surprise | $0 |
-| Ingestion worker | **Cloud Run Jobs + Cloud Scheduler** | Same project, same free tier, cron built in | $0 |
-| Database | **Neon** or **Supabase** Postgres free tier | Postgres + PostGIS for the radius query | $0 |
-| Images | **Cloudflare R2** | No egress fees — the thing that bites you elsewhere | $0–5 |
-| Domain | GoDaddy, Namecheap, Cloudflare — anyone | | ~$1 |
+| GPT-5-nano | $0.05 / $0.40 | **~$4** | Cheapest — try first |
+| Gemini 2.5 Flash-Lite | $0.10 / $0.40 | **~$6** | Cheapest — try first |
+| GPT-5-mini | $0.25 / $2.00 | ~$19 | Middle ground |
+| Claude Haiku 4.5 | $1.00 / $5.00 | ~$62 | Safe default, strongest small model |
+| Claude Sonnet 5 | $2.00 / $10.00 | ~$123 | Overkill for extraction |
+| Self-hosted Qwen | GPU rental | $256–400 | No — see below |
 
-Cloud Run's free tier covers roughly **10,000–13,000 daily active users** before you pay anything.
-The binding constraint is the 180,000 vCPU-seconds/month allowance rather than the 2M request
-count — at ~100ms per request that works out to about 1.8M requests. Either way, a prototype will
-not come close.
+All assume 21,000 pages/month with batching and caching on. Both roughly halve the raw price;
+turn them on from day one.
 
-### Alternatives worth knowing
+**Cheapest isn't automatically right, because of your language requirement.** Nano-class models
+degrade on messy HTML and non-English pages — exactly your Chinese, Russian and Arabic sources.
+**Test properly:** 100 real pages including 30 non-English, run through GPT-5-nano and Claude
+Haiku, count errors. If nano gets 95%+ right, the $58/month difference is free money. If it
+mangles Cyrillic venue names, pay for Haiku.
 
-- **Cloudflare Workers** — 100,000 requests/day free, excellent edge performance. Good for the
-  read API only; it forces JavaScript/TypeScript on a non-Node runtime, which fights the Python
-  crawling stack.
-- **Oracle Cloud Always Free** — a real always-free Linux VM you fully control, which suits a
-  crawler well. Two caveats: Oracle **quietly halved the ARM allowance from 4 OCPU/24GB to
-  2 OCPU/12GB on 15 June 2026 with no announcement**, and capacity in popular regions is often
-  unavailable. Usable, but don't build something you can't move.
-- **Render** — the last mainstream PaaS with genuinely free-forever compute. One trap: **the free
-  Postgres expires after 30 days.** Free web services also sleep when idle.
-- **Railway** — free tier gone. **Fly.io** — free tier retired October 2024. Both now require a
-  card for anything real.
-
-### Can GitHub be the backend?
-
-**GitHub Pages: no.** It is explicitly static-only — no server-side code, no database.
-
-**But GitHub Actions + Pages genuinely works as a $0 backend for your prototype**, and it's worth
-taking seriously, because your data is precomputed and read-only:
-
-- **GitHub Actions** runs the crawl on a cron — 2,000 free Linux minutes/month on private repos
-  (~66 min/day), unlimited on public ones.
-- It commits a file like `bay-area/2026-09-17.json` to the repo.
-- **GitHub Pages** serves it over a CDN — 100GB/month soft bandwidth limit.
-- The iPhone app downloads one day's file and **applies every filter locally**.
-
-That last point is the trick. One metro-day is roughly 500 events × ~1.5KB ≈ **750KB, or ~150KB
-gzipped.** All five of your filters — date, time, event type, language, 15-mile radius — are
-client-side operations on a payload that small. You need no query API at all.
-
-**Where it breaks:** no per-user state, so no reviews, no "Going", no accounts. Daily commits
-bloat git history. 1GB repo and site limits. And using Actions as general-purpose compute is a
-soft terms-of-service gray area — fine at prototype scale, not something to build a company on.
-
-**Verdict:** legitimate for the read-only prototype, not for the MVP once users write anything.
-Budget a weekend to move off it.
-
-### Can GoDaddy, 101domains, or similar be the backend?
-
-**No. Use them for the domain only** — which is what they're actually good at.
-
-Their shared cPanel hosting will not do this job:
-
-- **Node.js is not officially supported** on GoDaddy shared hosting; every path is an NVM
-  workaround requiring terminal access you may not have.
-- Python works via Passenger ("Setup Python App"), but fragilely.
-- **The killer: you cannot run persistent background workers.** Shared hosts terminate
-  long-running processes. Cron jobs exist but are constrained, and your crawler is exactly the
-  kind of process they kill.
-- No modern deploy pipeline, no scale-to-zero, no managed Postgres.
-
-Their VPS tier would technically work, but costs $20–60/month for less capability than Cloud Run
-gives you free.
+**Why not self-host Qwen:** ~21 million output tokens/month. No free hosting tier includes a GPU,
+so CPU-only means **about 49 days of computing per month** — a month has 30. A rented GPU is
+$256–400/month against $4–62 for an API. Revisit at ~100× the volume.
 
 ---
 
-## Node.js or Python?
+## Photos and reviews
 
-**Python for the ingestion worker. Either for the read API. If you want one language, pick
-Python.**
+You get them by **calling licensed APIs, not by scraping.** Three services return venue photos
+and reviews legally, each with a free monthly allowance:
 
-The split is natural because the two halves have genuinely different needs:
+| Service | Free per month | What you get | After free tier |
+|---|---|---|---|
+| Tripadvisor Content API | **5,000 calls** | Photos, reviews, details. Best free allowance | Paid; card required |
+| Google Places (Enterprise+Atmosphere) | **1,000 calls** | Rating, up to 5 reviews, photos. Best coverage | $40 / 1,000 |
+| Foursquare Places (Pro) | **500 calls** | Photos, tips, venue attributes | $15 / 1,000 |
+| **All three combined** | **6,500 calls** | Enough for an MVP without paying anything | |
 
-**Ingestion — Python wins clearly.** This is its home turf:
-- `extruct` parses schema.org JSON-LD, which is your free extraction tier and handles ~40% of
-  pages at zero LLM cost
-- `httpx`, `selectolax` / BeautifulSoup for fetch and parse
-- `playwright` for the handful of pages that need rendering
-- `rapidfuzz`, `shapely`, `scikit-learn` when dedup and geo work start mattering
+### Three rules that keep this free and legal
 
-The JS equivalents exist but are thinner, and you'd be fighting the ecosystem for no gain.
+1. **Fetch only when a user taps an event**, never for the whole list. A 40-event list costs zero
+   calls; only the opened one costs a call. That's what makes 6,500 go a long way.
+2. **Store the place ID, nothing else.** Google's terms let you keep `place_id` forever and
+   lat/lng for 30 days, but not reviews, names or ratings. Save the ID during the 4am crawl,
+   fetch the rest live.
+3. **Cascade through the free tiers.** Tripadvisor (5,000) → Google (1,000) → Foursquare (500).
+   Track the count in your database and stop when exhausted — your budget-guard idea, and it
+   works perfectly here.
 
-**Read API — a coin flip.** It's database reads and JSON serialization. FastAPI or Express both
-do it in an afternoon. TypeScript buys you shared types with the front end; Python buys you one
-language across the whole backend.
+### Free extras, no API needed
 
-**The LLM part is a wash** — Anthropic and OpenAI both ship first-class SDKs for Python and
-TypeScript, with identical capabilities.
-
-**Recommendation: Python for both**, unless your team is JavaScript-native, in which case Node for
-the API and Python for the worker is fine. One exception: if you choose Cloudflare Workers for the
-read API, that decision forces TypeScript.
-
----
-
-## Self-hosted Qwen, or a paid API?
-
-**Use the paid API. Self-hosting is both slower and more expensive here, and on a free tier it is
-arithmetically impossible.**
-
-Your extraction workload is roughly 35,000 pages/month for a Bay Area MVP, at ~600 output tokens
-per page — **about 21 million output tokens a month.**
-
-**On a free-tier CPU box** (Oracle Always Free, 2 OCPU / 12GB ARM after the June cut — and note
-that no free tier anywhere includes a GPU), a quantized 7B model runs at maybe 3–15 tokens/sec:
-
-| Throughput | Compute needed per month |
-|---|---|
-| 3 tok/s | **81 days** |
-| 5 tok/s | **49 days** |
-| 15 tok/s (optimistic) | **16 days** |
-
-A month has 30. At realistic CPU speeds you cannot finish the work in the month it arrives.
-
-**On a rented GPU**, the cheapest credible options run ~$0.35–0.55/hour — about **$256–400/month**
-for an always-on RTX A6000 or 4090 class card. Cheaper spot capacity exists but adds
-interruption handling.
-
-**On Haiku 4.5, batched and cached: $44–147/month**, with a better model, no ops burden, and no
-GPU to babysit.
-
-So self-hosting costs **2–9× more** for worse extraction quality. The break-even for self-hosting
-generally lands somewhere around millions of tokens *per day*; you're at under a million. Add
-10–20 hours/month of maintenance and the gap widens further.
-
-Revisit this only if volume grows by roughly two orders of magnitude, and even then, the first
-thing to self-host is *classification* (short outputs, high volume, simple) — not extraction.
-
----
-
-## Web search — yes, but not where you think
-
-Add search, but understand what it's for. **Search is how you discover sources you don't know
-about. Crawling is how you get events.** Keep them separate:
-
-| Job | Tool | Cadence |
+| What | Where it comes from | Cost |
 |---|---|---|
-| Get events from known sources | Your crawler + LLM extraction | 2×/day |
-| Find *new* sources you're missing | Search API | weekly or monthly |
-| Answer a user's query | Database read | per request |
+| Event flyer image | Already on the listing page your crawler read | $0 |
+| Venue photos | The venue's own website, linked with attribution | $0 |
+| **Organizer's past events** | **Your own database** — a query over events you already have | $0 |
+| Organizer's Instagram posts | Instagram oEmbed — the sanctioned way to embed public posts | $0 |
+| Notable venue photos | Wikimedia Commons, openly licensed | $0 |
 
-Search must never be in the request path or the per-event path. Used for discovery it's a few
-hundred queries a month; used per-event it's the quadratic cost problem from the earlier cost
-model.
-
-### Can you use Google Search API free, and fall back when it starts charging?
-
-**No — and not because of the budget logic, which is sound. The APIs are simply gone.**
-
-- **Google Custom Search JSON API is closed to new customers** and **shuts down 1 January 2027.**
-  You cannot sign up. Existing customers pay $5/1,000 after 100 free queries/day.
-- **Bing Search API was retired 11 August 2025.** No Microsoft replacement.
-- **Brave killed its free tier in February 2026**, moving to ~$5/1,000 with a $5 monthly credit —
-  effectively about 1,000 free queries a month.
-
-**There is no free web search API left.** The cheapest credible paid options are **Serper** (~$1
-per 1,000 at a $50 prepaid minimum, less at volume) and **Parallel** (~$1 per 1,000). Exa runs ~$7
-and is AI-native.
-
-**Your fallback pattern is still exactly right — just point it at Serper or Brave.** Implement it
-as a budget guard: store a monthly query allowance in the database, decrement it atomically per
-call, and when it hits zero the discovery job skips search entirely and continues crawling. Roughly
-twenty lines, and it makes the spend a hard ceiling rather than a surprise. Do this regardless of
-provider.
+**The one honest limit:** these APIs cover *venues* (bars, clubs, theaters) well, because that's
+what Google, Tripadvisor and Foursquare index. They do **not** cover *organizers* — a promoter or
+dance collective has no Google Places entry. Venue reviews you can have on day one; organizer
+reviews have to come from your own users, starting empty.
 
 ---
 
-## Should you use an agent?
+## Total cost
 
-**No — not for ingestion.**
+| Item | Cheapest setup | Safe setup |
+|---|---|---|
+| GitHub Actions (crawler) | $0 | $0 |
+| Database (Neon or Supabase) | $0 | $0 |
+| Read API (Cloud Run) | $0 | $0 |
+| LLM extraction | $4 (GPT-5-nano) | $62 (Claude Haiku) |
+| Photos + reviews | $0 within free tiers | $0–40 |
+| Image storage (Cloudflare R2) | $0 | $5 |
+| Domain | $1 | $1 |
+| Apple Developer ($99/yr) | $8 | $8 |
+| **Total** | **~$13/mo** | **~$76–116/mo** |
 
-An agent earns its cost when the steps can't be specified in advance. Yours can: fetch → try
-JSON-LD → fall back to one structured-output LLM call → validate against schema → write row. A
-deterministic pipeline is cheaper, faster, debuggable, reproducible, and trivially retryable.
-
-An agentic loop would reintroduce exactly the problem from the cost model — accumulated tool
-results re-billed on every turn, so input cost grows with the square of the tool-call count — in
-exchange for flexibility a fixed pipeline doesn't need.
-
-**Where an agent might earn its place later**, neither at MVP:
-- **Source discovery** — genuinely open-ended ("find Russian-language event sources in the Bay
-  Area I don't already have"), run monthly, small volume.
-- **Dedup adjudication** on borderline pairs, where the candidate set is small and a wrong merge
-  is costly.
-
-Use structured outputs with a strict JSON schema for extraction. That gives you the reliability
-people reach for agents to get.
-
----
-
-## The part of your spec that can't be built as described
-
-You asked for, on each event: venue info, organizer info, **photos of the organizer's previous
-events, photos of the venue, and reviews of the venue and organizer.**
-
-Two of those cannot be obtained by crawling at any price, per the technical and legal assessments:
-
-- **Photos.** Instagram removed the Places tab in 2026 and has stripped location fields from the
-  API; there is no supported venue-photo harvesting path. Stories have no third-party read access
-  at all. And harvested photos arrive with no licence to display.
-- **Reviews.** Google Places returns ~5 reviews with no storage rights; Yelp Fusion returns 3
-  excerpts with none. More fundamentally, reviews *of events and organizers* don't exist anywhere
-  to take.
-
-**What to build instead, all of it legal and free:**
-
-| Field | Honest source |
-|---|---|
-| Venue info | Overture Maps / OSM as the spine, plus the venue's own site. Not Google Places — its terms restrict storing fields beyond the place ID |
-| Venue photos | The venue's own site images, hot-linked with attribution, or your own photographs |
-| Organizer info | Their own public page, extracted like any other |
-| Organizer's past events | **You already have this** — it's a query over your own events table once you've been crawling a few weeks. This one is free and genuinely good |
-| Reviews | Start empty with a "be the first" state. Seed by writing honest first-party notes on the top ~50 venues yourself |
-| Star rating | You *may* be able to show a Google or Yelp rating number with attribution and a link out under their terms — but you cannot store or mirror review text. Check the current terms before depending on it |
-
-The organizer's-past-events row is worth dwelling on: it costs nothing, requires no third party,
-and gets better every week you run. It is the closest thing in this spec to a compounding asset.
-
----
-
-## Your language filter is the best idea in the spec
-
-English, Chinese, Russian, Spanish, Arabic — in the Bay Area this is not a nice-to-have, it's a
-wedge:
-
-- These communities are **geographically concentrated** (Chinese in the Sunset, Richmond and
-  Millbrae; Russian in the Richmond; Spanish in the Mission), which works *with* your 15-mile
-  radius instead of against it.
-- Their events are **precisely the long tail Google and Eventbrite miss** — WeChat groups,
-  community centres, churches, cultural associations.
-- **Nobody offers this filter.** It is a real, defensible differentiator, unlike "more complete
-  listings."
-
-Detection is free: add a `language` field to the extraction schema. The model is already reading
-the page.
-
-**Recommendation: pick one language community and go deep** rather than shipping all five thin.
-That gives you the single-vertical focus the MVP assessment argued for, with a sharper edge than
-picking an event category.
-
----
-
-## Data model sketch
-
-Five tables carry the whole MVP:
-
-```
-venue        id, name, geog(Point), address, overture_id, website, photos[], attrs{}
-organizer    id, name, website, socials{}, claimed_by
-event        id, venue_id, organizer_id, starts_at, ends_at, title, description,
-             price_min, price_max, ticket_url, flyer_url, category, language,
-             source_id, dedup_key, last_seen_at, cancelled_at
-source       id, url, kind(api|feed|jsonld|render), last_crawled_at, failure_count
-review       id, subject_type(venue|organizer), subject_id, user_id, rating, body
-```
-
-The open-the-app query is one indexed read:
-
-```
-WHERE starts_at BETWEEN now() AND end_of_local_day
-  AND cancelled_at IS NULL
-  AND ST_DWithin(venue.geog, user_point, 24140)   -- 15 miles in metres
-ORDER BY starts_at
-```
-
-Index on `(starts_at)` and a GiST index on `venue.geog`. Everything else — type, language, time
-band — is a filter on an already-small result set.
-
----
-
-## What this costs
-
-| Line | $/mo |
-|---|---|
-| Apple Developer Program ($99/year — required for TestFlight and the App Store) | $8 |
-| Cloud Run (API + jobs) | $0 |
-| Postgres (Neon / Supabase free) | $0 |
-| Cloudflare R2 | $0–5 |
-| LLM extraction (Haiku 4.5, batched + cached) | $30–60 |
-| Search API for source discovery, hard-capped | $0–10 |
-| Domain | $1 |
-| **Total** | **~$40–85/month** |
-
-Plus the one-time Apple Developer signup. Everything else is your time.
+Start with the cheapest column. Move one line at a time, only when something breaks. The most
+likely upgrade is the LLM, and only if non-English extraction disappoints.
 
 ---
 
 ## Build order
 
-1. **The ingestion worker first, run locally.** No hosting, no app. Prove you can produce a clean
-   table of today's Bay Area events with a language field. If this doesn't work, nothing else
-   matters.
-2. **Put it on a schedule** — Cloud Run Job, or GitHub Actions if you want to defer even that.
-3. **The read API** — one endpoint, one query.
-4. **The iPhone app** — list, detail, the five filters. Filters run client-side at this size.
-5. **Accounts, reviews and "Going"** — only now, and this is the point where you must be off
-   GitHub Pages.
-
-Steps 1–4 have no user state, which is what keeps them nearly free. Step 5 is where the real
-product starts and where the moat begins to form.
-
-One note on the front end: you've specified a native iPhone app, and this design assumes it. Be
-aware it roughly triples front-end effort versus a PWA and adds App Store review to every release.
-If that's a deliberate call — native feel, push notifications, camera for photo upload — it's a
-reasonable one. Just make it knowingly.
+1. **The Python crawler, on your laptop.** No hosting, no app, no GitHub. A script that produces
+   a clean list of today's Bay Area events in a file. If this doesn't work, nothing else matters.
+2. **Move it to GitHub Actions.** Add the schedule file. Now it runs twice a day without you.
+3. **Add the database.** Neon free tier; the crawler writes there instead of a file.
+4. **The read API.** One endpoint on Cloud Run, one query. Test in a browser before any app exists.
+5. **The iPhone app.** List, detail, five filters. The $99 Apple fee starts here.
+6. **Photos and reviews on the detail screen.** Wire Tripadvisor first — largest free allowance.
+7. **Accounts and your own reviews.** Last. Where it stops being a listings app and starts being
+   yours.
