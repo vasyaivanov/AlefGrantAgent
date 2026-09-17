@@ -189,3 +189,129 @@ likely upgrade is the LLM, and only if non-English extraction disappoints.
 6. **Photos and reviews on the detail screen.** Wire Tripadvisor first — largest free allowance.
 7. **Accounts and your own reviews.** Last. Where it stops being a listings app and starts being
    yours.
+
+---
+
+# Follow-up answers
+
+## 1. Where do the 800 sources come from?
+
+**They are *websites*, not search results.** A list of TV channels, not a list of tonight's shows.
+
+You never ask anyone "give me events near Palo Alto". You keep a list of **places that publish
+events** and visit all of them every 12 hours. Whatever is on those pages today becomes your
+database. Entries look like: `eventbrite.com/d/ca--san-francisco/events`,
+`theindependentsf.com/calendar`, `events.stanford.edu`, `sfpl.org/events`,
+`russiancentersf.com/events`.
+
+"Events near Palo Alto, 15 miles, tonight" is then a **database question, not a search** — every
+event already has a lat/long, so it's one SQL `WHERE` clause.
+
+**Why not let the LLM web-search it:**
+- **You can't verify it.** No source page, no way to know it's real or cancelled. Every crawled
+  event carries the URL it came from.
+- **Search engines don't index event pages fast enough.** An event posted Tuesday for Thursday
+  may never be indexed.
+- **You'd see the top ten results** of an index that already decided what's worth listing —
+  precisely the long tail you're trying to beat.
+
+**Your instinct is right, one layer up.** Search and the LLM are how you *build and grow the
+list*: "list venues in Palo Alto that host public events", run monthly, human-reviewed, new URLs
+added to the source table.
+
+| Question | Answered by | How often |
+|---|---|---|
+| Who publishes events around here? | Search + LLM + you | Monthly, ~100 queries |
+| What's on today? | The crawler | 2×/day, 800 pages |
+| What's near Palo Alto tonight? | SQL query | Per user, instant |
+
+Start by hand — 50–100 obvious sources is one afternoon and covers a surprising share. It grows
+via monthly discovery, links found inside pages you already crawl, and organizers emailing you.
+
+## 2. Photos — what actually works
+
+**Grabbing from a search engine:** technically possible, legally the riskiest thing in the
+design. Google Images is a set of *links to other people's photographs*; re-hosting them means
+copying copyrighted images with no licence, and unlike text, photos have identifiable owners and
+a DMCA complaint takes ten minutes. There's also no API — Google Images never had one, and Bing's
+Image Search API died with the rest of Bing Search in August 2025.
+
+**Asking the LLM for photos:** no, and this is a hard technical limit. **An LLM returns text.** It
+cannot hand you an image file. It can return image *URLs*, and those are frequently invented —
+plausible links that 404 or point at the wrong venue. Even with search on, you'd fetch and verify
+every one, and still have no licence.
+
+**Caching in Postgres — two different answers:**
+- **Licensed API photos (Google, Tripadvisor, Foursquare): you may not cache them.** Terms forbid
+  storing the content. Google lets you keep `place_id` forever and lat/long 30 days; everything
+  else is fetch-fresh.
+- **Photos you have rights to** (crawled flyers, venue site images, Wikimedia, user uploads): keep
+  them, **but not inside Postgres.** Never store image bytes in Postgres — it bloats the DB, blows
+  the free tier, and makes backups enormous. **Files go in object storage (R2); Postgres stores
+  only the key.** Postgres holds facts, R2 holds pixels.
+
+**Does the iPhone call the photo API directly? No — every API call goes through your backend.**
+1. **API keys.** A key shipped inside an app can be extracted from the download in minutes, and
+   then strangers spend your money.
+2. **Budget control.** Only the server can count calls and cascade Tripadvisor → Google →
+   Foursquare. A phone can't know the global count.
+3. **Swapping providers** server-side is a deploy; in the app it's an App Store review.
+
+The one exception: the backend returns the photo *URL*, and the phone loads the image bytes
+directly from it. That part is normal and saves your bandwidth.
+
+## 3. One paid server instead of five free services?
+
+**Reasonable, and I'd support it.** For ~$12/month you trade five dashboards for one machine you
+understand completely. It collapses the architecture from five places to three: **iPhone → your
+server → outside APIs.** Cron runs the crawler, FastAPI serves the app, same box.
+
+| | Free services | One paid VPS |
+|---|---|---|
+| Cost | $0 | $6–12/mo |
+| Places to understand | Five | **One** |
+| Background jobs | Scheduled runs only | **Real cron, no cold starts** |
+| Debugging | Several consoles | **SSH in, one log** |
+| Free-tier surprises | Yes — Oracle halved its allowance in June with no notice | **None** |
+| Ops you own | **None** | 2–5 hrs/mo |
+| If it dies at 2am | **Auto-restarts** | Down until you fix it |
+| Scales to zero | **Yes** | No |
+
+Prices: DigitalOcean from $4/mo ($6 for 1GB), Linode Nanode $5, Hetzner roughly 3–4× cheaper than
+either for the same specs. A $12/month 2GB box is comfortable.
+
+**Recommendation if you go this way: one VPS for the Python, but keep managed Postgres (Neon
+free) rather than running the database on the box.** Every other VPS mistake is recoverable;
+losing a database you forgot to back up is not.
+
+## 4. Where logic lives once you have users
+
+**All logic lives on the backend. The phone displays things and sends taps.** The reason is
+specific to mobile: **changing backend logic is a deploy; changing phone logic is an App Store
+review** — one to three days, and users who never update keep your old rules forever.
+
+| Layer | What belongs there | What must never go there |
+|---|---|---|
+| iPhone | Screens, gestures, GPS, image rendering, offline copy | API keys, business rules, ranking |
+| Backend (Python) | **Everything that decides:** auth, permissions, ranking, budget guards, moderation, notifications, all outside API calls | Image files |
+| Postgres | Facts and relationships: events, venues, users, preferences, follows, RSVPs, photo *references* | Image/video bytes |
+| Object storage (R2) | Photo and video *files*, user uploads | Anything you need to query |
+| Outside APIs | Rented things: LLM, Places photos and reviews | Anything you must store |
+
+**What adding users changes:**
+- **The static-JSON option dies for good.** Accounts, preferences and uploads are all *writes*;
+  GitHub Pages only serves files. This is also where the single-server answer above starts looking
+  clearly right.
+- **Filtering moves server-side.** Fine to filter 40 events on the phone at MVP; once you rank by
+  preferences you can't ship the whole city to the phone, and you'll want to tune ranking without
+  an App Store release.
+- **User uploads never pass through your API server.** Phone asks the backend for a short-lived
+  signed upload URL, uploads *directly* to R2, tells the backend the key.
+- **New tables, same database:** `user`, `user_photo`, `preference`, `follow`, `rsvp`, `review`.
+  Nothing about the crawler changes.
+- **Moderation becomes a real job** the moment strangers upload photos — reporting, blocking, a
+  review queue. Budget it as work.
+
+**The good news:** none of this disturbs steps 1–4. The robot keeps collecting events exactly as
+before. You're adding a second, independent half — the user half — and the two meet only in the
+database.
