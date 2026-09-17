@@ -315,3 +315,149 @@ review** — one to three days, and users who never update keep your old rules f
 **The good news:** none of this disturbs steps 1–4. The robot keeps collecting events exactly as
 before. You're adding a second, independent half — the user half — and the two meet only in the
 database.
+
+---
+
+# Follow-up, round two
+
+## 1. Eventbrite, Luma, Facebook — a source is a URL with parameters
+
+**You're right and I was sloppy.** `eventbrite.com` shows you nothing. But you don't "search" it
+either — **these sites have listing URLs you construct once and fetch forever.** The search
+happens in the URL, not in a prompt.
+
+| Site | What the crawler actually fetches | Notes |
+|---|---|---|
+| Eventbrite | `/d/ca--san-francisco/all-events/?page=1…` | Caps at ~49 pages (~1,000 events) per search — split by category or date range |
+| Luma | `lu.ma/sf` | City pages public, plus a **public JSON API behind them** — no HTML parsing |
+| Resident Advisor | `ra.co/events/us/sanfrancisco` | Clean listing, great for nightlife |
+| Dice | `dice.fm/browse/san-francisco` | Music-heavy |
+| Meetup | `/find/?location=us--ca--San Francisco` | Browsable without the gated API |
+| Ticketmaster | Discovery API | **Real API**, 5,000 calls/day free — use it, don't scrape |
+| Venue calendars | `.ics` / RSS feeds | **Underrated** — structured, free, no LLM needed |
+
+A row in your `source` table is a URL template plus a page range. The crawler expands and fetches.
+**That is the search** — done once at setup, not per user.
+
+**Facebook, honestly:** `facebook.com/events/explore/` requires login; the Events API was cut in
+2018; public event pages are partly viewable logged out but usually hit a wall. Practical route:
+search-API queries like `site:facebook.com/events "San Francisco"` to find public URLs, then fetch
+each logged out. Expect ~half to work. A bonus source, never core coverage — the blocker is
+technical reliability, not just terms.
+
+## 2. What the crawler requests, and new sites
+
+**Two different jobs — this is what was unclear:**
+
+- **The crawler is dumb.** Reads the `source` table, fetches every URL in it, discovers nothing.
+  Runs 2×/day.
+- **A separate discovery job finds new sources.** Monthly. Four ways: search-API queries; **link
+  mining** (while crawling, note outbound links to domains you don't have); LLM triage ("is this
+  an event listing page?"); and you, by hand.
+- **New sources land in a pending queue** you approve before they go live. Ten minutes a month,
+  keeps junk out.
+
+## 3. Event-goer only — confirmed
+
+Drops out entirely: organizer accounts and verification; all organizer tools; attendance
+prediction and venue analytics; payments and ticketing (link out instead).
+
+**Keep one thing anyway:** still extract and store the organizer *name* on every event. Costs
+nothing now, and it's what later powers "other events by this organizer" — free from your own
+database. Throwing it away means re-crawling everything later.
+
+## 4. Search-engine photos for the prototype
+
+Understood — prototype, non-commercial, not shipping publicly.
+
+**There's no Google Images API**, so go through a SERP provider. **Serper** has an images
+endpoint: 1 credit per call, **~$1 per 1,000** (to $0.30 at volume), returning image URLs,
+thumbnails, source page, dimensions and alt text as JSON.
+
+- **Hot-link first, don't download.** Store the URL, let the phone load it. Zero storage, zero
+  copying. Links rot, so re-fetch on a schedule.
+- **If you cache bytes, cache to R2 with a TTL** — `photo_cache(venue_id, source_url, r2_key,
+  fetched_at, expires_at)`, purged after 30 days. Never into Postgres.
+- **Put it behind one interface** — a single `get_venue_photos(venue)` function. Going commercial
+  later means changing one file, not twenty.
+
+Keep it to TestFlight rather than a public App Store listing while this is the photo source. The
+swap is cheap if the interface exists now.
+
+## 5. Multimodal models — vision changes the answer
+
+**A multimodal model can *look at* images. It still can't *find* them** — it has no photo library
+of real places. Ask for "photos of Cafe Cocomo" and you get invented URLs, or a *generated*
+picture that isn't the real venue.
+
+Feed it images you already have and it becomes genuinely useful:
+
+| Use | Value |
+|---|---|
+| **Read text out of flyer images** | **Big win.** Many events are posted as a picture with date, time and price *only* in the image. Nothing else can read that |
+| Pick the best photo | "Which of these 10 shows the venue interior, which is a logo, which is a flyer?" |
+| Sanity-check a match | "Does this plausibly show a nightclub?" — cheap filter against junk |
+| Moderate uploads | Later |
+
+Images cost ~1,000–1,600 input tokens each, so vision calls are a few times a text call — still
+cents. Flyer-reading alone probably pays for itself in events you'd otherwise miss.
+
+## 6. Python everywhere — confirmed
+
+Nothing here needs JavaScript. Crawling: `httpx`, `selectolax`, `playwright`. Free extraction
+tier: `extruct` (schema.org JSON-LD), `icalendar` (.ics). LLM: `anthropic` / `openai` /
+`google-genai`. API: `FastAPI` + `uvicorn`. Database: `psycopg` or `SQLAlchemy` with
+`GeoAlchemy2`. Dedup: `rapidfuzz`. The only Swift is the iPhone app.
+
+## 7. What "dies" means, and what "ops" means
+
+A VPS is **one computer**. Cloud Run runs many copies and replaces a broken one automatically; a
+droplet doesn't unless you tell it to. Things that stop it: your Python process crashes and
+nothing restarts it; the disk fills with logs or cached images; the OS needs a reboot.
+
+**Nearly all of it is solved by two things:** a five-line `systemd` service file that restarts
+your app whenever it exits, and a free uptime monitor that emails you if the site stops answering.
+Do both on day one and "it dies" becomes "it restarted itself and I got an email."
+
+**Correction to what I said earlier:** I quoted 2–5 hours/month of ops, which is a production
+figure. For a prototype with systemd, Caddy for automatic HTTPS, and managed Postgres so backups
+aren't yours, it's realistically **about an hour a month** — run updates, glance at disk space.
+
+**"Ops" is just the chores of keeping a server running.** You *are* paying for hosting; hosting
+buys you **the machine**, not someone to administer it. Shared hosting (GoDaddy) includes
+administration but forbids background workers. A VPS is the opposite trade.
+
+**What one droplet replaces:**
+
+| Currently | On a VPS |
+|---|---|
+| GitHub Actions (crawler schedule) | → cron on the box |
+| Google Cloud Run (read API) | → FastAPI behind Caddy |
+| GitHub Pages (static files) | → Caddy, or not needed |
+| Neon Postgres | Keep it — do not self-host the database |
+| Cloudflare R2 | Keep it — $0 egress beats droplet bandwidth |
+| Outside APIs | Unchanged |
+
+One $6–12 box replaces **three** of six pieces: **iPhone → your droplet → Neon + R2 + outside APIs.**
+
+## 8. Can Neon store photos and videos?
+
+Technically yes. In practice it's the fastest way to destroy this setup — **Neon's free tier is
+0.5 GB total.**
+
+- **171 photos** at 3MB fill the entire free database
+- **13 videos** at 40MB fill it
+- **1,000,000 photo *references*** fit, and use only 190MB
+
+Beyond space, blobs in Postgres hurt in ways that surface late: every backup copies them, every
+restore downloads them, and Postgres caches table data in RAM — so photo bytes evict the event
+rows your queries need and everything slows at once.
+
+| Photos | Size | On R2 | In Neon free |
+|---|---|---|---|
+| 1,000 | 2.9 GB | $0 (within free 10GB) | Impossible |
+| 10,000 | 29 GB | $0.29/mo | Impossible |
+| 100,000 | 293 GB | $4.24/mo | Impossible |
+
+**The rule:** Postgres stores the *row* — `venue_id, r2_key, width, height, source, license`,
+about 200 bytes. R2 stores the *file*.
