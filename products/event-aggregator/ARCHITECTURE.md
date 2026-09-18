@@ -461,3 +461,179 @@ rows your queries need and everything slows at once.
 
 **The rule:** Postgres stores the *row* — `venue_id, r2_key, width, height, source, license`,
 about 200 bytes. R2 stores the *file*.
+
+---
+
+# Round three — sources, photos after the event, and staying up
+
+## 1. Telegram — the best source found, and it is free
+
+Every public Telegram channel has a web page at **`t.me/s/channelname`** that Telegram serves
+to a logged-out browser as plain HTML. **No account, no API key, no phone number, no cost.**
+You get roughly the last 500–1,000 posts with `httpx` and an HTML parser — the same two lines
+already used for every other site. Posts go to the LLM you already pay for, which pulls out
+the event details.
+
+**Telegram is strictly easier than Facebook**: cheaper, more reliable, no login wall, no
+anti-bot fight. And it lands where the product is differentiated — Russian, Hebrew, Chinese
+and Spanish community channels are exactly the long tail Google and Eventbrite miss.
+
+### Telethon — what it adds, and why it stays off the critical path
+
+`t.me/s/` gives recent posts of public **channels**. Telethon (logged in as a user account)
+adds four things:
+
+1. **Search Telegram's global directory** — how you *find* channels
+2. **Groups**, not just channels — many event communities are two-way groups with no public page
+3. **Full history**, not just recent posts
+4. **Real-time** — know the moment something posts
+
+**Virtual phone numbers usually fail.** Telegram blocks many VoIP numbers at signup, and
+accounts made that way get flagged and banned more readily. Bulk automated collection also sits
+against their terms. Use a real prepaid SIM as a burner, never a personal account, and assume
+it may be lost.
+
+**Layering (the recommended design):**
+- **Layer 1, daily workhorse:** `t.me/s/` crawling of known public channels. No account, no risk.
+- **Layer 2, monthly only:** Telethon purely to discover new channels and reach groups.
+
+If the Telethon account is banned you lose discovery, not the event pipeline.
+
+### Finding the right channels
+
+1. **Directory sites** — **TGStat indexes 3.1M+ public channels**, searchable by region and
+   topic. Also Telemetr.io, GroupDA, TLGram.
+2. **Serper** — `site:t.me "San Francisco" events`
+3. **Telethon global search** by keyword
+4. **Link mining** — channels link to each other constantly; pull every `t.me/` link from
+   crawled pages and queue them
+5. **The Part 3 fallback** (below) surfaces channels when users search niche things
+
+**Validate automatically:** fetch `t.me/s/<name>`, take the last 50 posts, ask the LLM *"do
+these post local Bay Area events?"* Keep the winners. No manual review needed.
+
+## 2. Facebook, LinkedIn, Instagram, TikTok
+
+| Platform | Verdict |
+|---|---|
+| **Facebook** | Use **`facebook-event-scraper`** (open source, free) first, **Apify** ($13/1,000 events, ~2,000 free) as fallback. Note it is **Node.js, not Python** — call it from Python with `subprocess.run(["node", "scrape.js", url])`, about five lines. No auth, so **public event pages only**. Expect breakage; keep it a bonus, not a dependency. |
+| **LinkedIn** | **Skip.** Events there are overwhelmingly webinars and professional networking — poor fit for "what's near me tonight", most hostile to scrape, least rewarding. |
+| **Instagram** | **No events feature.** Event info lives in captions and flyer images on venue accounts. Possible via MLLM flyer reading on ~20 known accounts, but low priority. |
+| **TikTok** | **Closed.** The Research API is academic-only — TikTok explicitly excludes creators, advertisers and commercial users, and using the data in a paid tool gets access permanently revoked. Only third-party scrapers remain. Skip. |
+
+Alternatives checked and rejected as no better: Bright Data, ScrapeCreators, SociaVault, Nimble,
+PhantomBuster, Botsol.
+
+## 3. The full source list
+
+| Source | How | Cost |
+|---|---|---|
+| **Ticketmaster** | Real API — **also covers LiveNation**, same company | Free, 5,000/day |
+| **SeatGeek** | Real API, free key on registration | Free |
+| **Funcheap** | RSS feed — structured, no LLM needed | Free |
+| **DoTheBay** | Listing page with embedded structured data | Free |
+| **Eventbrite** | `eventbrite.com/d/ca--san-francisco/all-events/?page=N` — caps at ~49 pages (~1,000 events), split by category or date | Free |
+| **Luma** | `lu.ma/sf` — public JSON behind the city page | Free |
+| **Meetup** | API needs paid Pro; crawl the city search page instead | Free |
+| **Resident Advisor** | `ra.co/events/us/sanfrancisco` | Free |
+| **SFGate** | Events section | Free |
+| **Venue calendars** | `.ics` feeds — underrated, structured, free | Free |
+| **Telegram** | `t.me/s/<channel>` | Free |
+| **Facebook** | Open-source scraper, Apify fallback | ~Free |
+
+## 4. Part 3 — the fallback search that teaches the app
+
+When someone searches something the database barely covers ("Jewish Tu B'Av events this
+Saturday"), fall back to the LLM with web search — **then save whatever it finds as a permanent
+source.** Those Telegram channels and synagogue calendars get crawled twice daily from then on,
+for everyone.
+
+**The app teaches itself from the questions it cannot answer.** The crawler covers the common
+case; users' odd searches grow the source list.
+
+Two guardrails: fire it only when results are genuinely thin, and rate-limit per user per day.
+Cost ~$1–3/month.
+
+## 5. Part 4 — photos from after the event
+
+A **daily sweep running 1–3 days behind** each event, because people need a day or two to post.
+
+**Three sources, ranked:**
+1. **The event's own page, re-crawled.** Organizers post recap galleries. You already have the
+   URL. **Free, do this first.**
+2. **The venue's and organizer's own social accounts.** The overlooked best source — they
+   reliably post recaps, it is a handful of known public profiles rather than a platform-wide
+   search, and there is no matching problem. **Free.**
+3. **Instagram hashtag** for attendee photos — via **Apify ($0.24–1.50 per 1,000 posts**, no
+   approval), or the Instagram Graph API (free but needs App Review and caps at **30 unique
+   hashtags per week**, about 4 events a day).
+
+Instagram **location search is dead** — the Places tab was removed in 2026.
+
+**The matching problem** — same venue, different Friday, looks identical. Store a confidence
+level with every photo:
+
+| Signal | Confidence |
+|---|---|
+| Posted by the venue or organizer account within 72 hours | **Certain** — auto-keep |
+| Exact hashtag match, posted 0–72h after the end time | **Likely** |
+| Turned up in a broad search | **Unsure** — must pass the MLLM check |
+
+Then the **MLLM screens each candidate**: photo plus event description, *"does this show this
+event — right date, venue, kind of crowd?"* Everything failing is discarded.
+
+**Cost: ~$6/month** (Apify $4–6 for ~200 events, MLLM screening $1.60 for 10,000 photos).
+
+This feature is also the natural on-ramp to **user uploads** — a "How it went" section with an
+"add your photos" button. User photos are the only source you own, never pay for, and that
+improves every event.
+
+## 6. Filtering out webinars
+
+Add one field the LLM extracts: `location_type` = in_person / online / hybrid. The model can
+tell from "Zoom link", "virtual", or no address at all.
+
+- **Hide online-only by default** — the app is "what's near me tonight"
+- A toggle to include them
+- Treat **hybrid as in-person** (it has a real address)
+- They would silently fail the radius query anyway; making it a real field means you *choose*
+  to show them rather than losing them by accident
+
+## 7. Keeping the server up
+
+**UptimeRobot only watches and emails — it cannot restart anything.** The restarting belongs on
+the server. Four layers:
+
+| Layer | Catches | Where | Cost |
+|---|---|---|---|
+| **systemd `Restart=always`** | Your program crashed | On the server | $0 |
+| **cron watchdog** — every 5 min, check locally, restart if no answer | Program running but hung | On the server | $0 |
+| **DigitalOcean monitoring alerts** | Disk filling, memory, CPU | Built into DigitalOcean | $0 |
+| **UptimeRobot** | The whole machine is unreachable | Outside | $0 |
+
+Layer 1 is five lines of config and handles most of it. Layer 4 exists because if the whole
+machine is wedged, nothing *on* it can tell you. For full auto-reboot, UptimeRobot can call a
+webhook that hits DigitalOcean's API.
+
+**Ops for a prototype is realistically about an hour a month** — run updates, glance at disk
+space. (An earlier 2–5 hour estimate in this document was a production figure.)
+
+## 8. Final monthly cost
+
+| Item | Cost |
+|---|---|
+| DigitalOcean server (2GB) | **$12** |
+| Neon Postgres | **$0** — free tier |
+| Gemini or ChatGPT reading pages | **$6** |
+| MLLM reading flyer pictures | **$1** |
+| Telegram channels | **$0** — no key, no login |
+| Facebook (open-source tool) | **$0** — Apify fallback free to ~2,000 events |
+| Serper photo + discovery search | **$0** — 2,500 free |
+| Tripadvisor venue reviews | **$0** — 5,000 free/month |
+| Ticketmaster + SeatGeek | **$0** |
+| Part 3 fallback searches | **$1–3** — rare and capped |
+| Part 4 after-event photos | **$6** |
+| UptimeRobot | **$0** |
+| **Total** | **≈ $26–28 / month** |
+
+Excludes the Apple Developer Program ($99/year, already owned) and the domain.
