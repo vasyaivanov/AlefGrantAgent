@@ -4,14 +4,16 @@ import html
 SUBJECT = "Alef flying car vs Tesla Roadster press release"
 CAPTION = "real photo, not AI, of Alef flying over Tesla Roadster, Cybertruck"
 IMAGE_FILE = "alef_over_tesla_800.jpg"
+OPEN_REPLY = "We have a major Press Release from Alef, please let me know if you agree to an embargo."
+OPEN_NEW = "Thanks for covering Alef Aeronautics before, we have a new major press release (under embargo until Tesla Roadster unveiling)."
 IMAGE_CID = "alef_over_tesla_800.jpg"   # connector derives Content-ID from filename
 
-def build_html(first_name: str) -> str:
+def build_html(first_name: str, new_contact: bool = False) -> str:
     hi = f"Hi {html.escape(first_name)}." if first_name else "Hi."
     F = 'font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.4;color:#000'
     P = f'style="margin:0 0 1em 0;{F}"'
     return f"""<div>
-<p {P}>{hi} We have a major Press Release from Alef, please let me know if you agree to an embargo.</p>
+<p {P}>{hi} {OPEN_NEW if new_contact else OPEN_REPLY}</p>
 <p {P}><b>Elon Musk is scheduled to unveil a new <u>flying</u> Tesla Roadster on Thu, Oct 15</b>, and, if true, it will be the <b>second flying car after Alef</b>.</p>
 <p {P}>Alef pre-emptively prepared a Press Release with:</p>
 <p style="margin:0;{F}">1.<b> Videos of Alef flying over Tesla Roadster</b><br>
@@ -25,9 +27,9 @@ Alef Press Team (Anna)</p>
 <span style="font-size:12px;color:#444">{html.escape(CAPTION)}</span></p>
 </div>"""
 
-def build_text(first_name: str) -> str:
+def build_text(first_name: str, new_contact: bool = False) -> str:
     hi = f"Hi {first_name}." if first_name else "Hi."
-    return f"""{hi} We have a major Press Release from Alef, please let me know if you agree to an embargo.
+    return f"""{hi} {OPEN_NEW if new_contact else OPEN_REPLY}
 
 Elon Musk is scheduled to unveil a new flying Tesla Roadster on Thu, Oct 15, and, if true, it will be the second flying car after Alef.
 

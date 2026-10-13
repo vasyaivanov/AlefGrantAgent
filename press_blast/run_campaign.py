@@ -33,7 +33,7 @@ def subject_for(r):
 
 def send_one(r, dry=False):
     to, cc = recipients(r)
-    html, text = T.build_html(r["first_name"]), T.build_text(r["first_name"])
+    html, text = T.build_html(r["first_name"], new_contact=(r["mode"] != "reply")), T.build_text(r["first_name"], new_contact=(r["mode"] != "reply"))
     m = G.build(", ".join(to), subject_for(r), text, html, image_path=os.path.join(HERE, T.IMAGE_FILE), cid=T.IMAGE_CID,
                 in_reply_to=r.get("reply_message_id_hdr") or None, references=r.get("references") or None,
                 cc=", ".join(cc) if cc else None)
