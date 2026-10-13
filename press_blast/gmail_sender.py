@@ -28,7 +28,7 @@ def api(method, path, body=None, params=None):
 
 def build(to, subject, text, html, image_path=None, cid=None, in_reply_to=None, references=None, cc=None):
     msg = EmailMessage()
-    msg["From"] = "Alef Press Team <press@alef.aero>"
+    msg["From"] = "Alef Flying Car Press <press@alef.aero>"
     msg["To"] = to
     if cc: msg["Cc"] = cc
     msg["Subject"] = subject
