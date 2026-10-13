@@ -1,2 +1,7 @@
-# Press campaign working files (contain personal email addresses; kept out of git)
-press_blast/
+# Press campaign: keep contact data, secrets and logs out of git; scripts are committed
+press_blast/inputs/
+press_blast/*.json
+press_blast/*.csv
+press_blast/*.xlsx
+press_blast/*.log
+press_blast/__pycache__/
