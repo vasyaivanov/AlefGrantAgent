@@ -58,10 +58,13 @@ def cmd_send(args):
         key = r["email"]
         if st["rows"].get(key, {}).get("status") == "sent": continue
         if limit is not None and done >= limit: break
+        if os.path.exists(os.path.join(HERE, "STOP")): print("STOP file found, halting before", key, flush=True); break
         if not now_mode:
             t = datetime.strptime(r["send_time_pt"], "%Y-%m-%d %I:%M:%S %p").replace(tzinfo=PT)
             wait = (t - datetime.now(PT)).total_seconds()
-            if wait > 0: time.sleep(wait)
+            while wait > 0:
+                if os.path.exists(os.path.join(HERE, "STOP")): print("STOP file found while waiting", flush=True); return
+                time.sleep(min(wait, 30)); wait = (t - datetime.now(PT)).total_seconds()
         else:
             time.sleep(15 if done else 0)
         try:
