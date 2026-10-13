@@ -1,7 +1,9 @@
 """Send via the Gmail API with the press@alef.aero OAuth token (multipart/related inline image, true replies)."""
 import json, os, time, base64, urllib.request, urllib.parse, mimetypes
 from email.message import EmailMessage
-from email.utils import make_msgid, formatdate
+from email.utils import make_msgid, formatdate, format_datetime
+from datetime import datetime
+from zoneinfo import ZoneInfo
 
 SECRETS = "/tmp/claude-0/-home-user-AlefGrantAgent/e458df72-e1db-5bd3-9535-10dd87daee1a/scratchpad/secrets"
 _tok = None
@@ -32,7 +34,7 @@ def build(to, subject, text, html, image_path=None, cid=None, in_reply_to=None, 
     msg["To"] = to
     if cc: msg["Cc"] = cc
     msg["Subject"] = subject
-    msg["Date"] = formatdate(localtime=True)
+    msg["Date"] = format_datetime(datetime.now(ZoneInfo("America/Los_Angeles")))
     msg["Message-ID"] = make_msgid(domain="alef.aero")
     if in_reply_to:
         msg["In-Reply-To"] = in_reply_to
