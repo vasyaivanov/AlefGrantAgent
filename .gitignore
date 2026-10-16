@@ -5,3 +5,4 @@ press_blast/*.csv
 press_blast/*.xlsx
 press_blast/*.log
 press_blast/__pycache__/
+press_blast/jwizard_calendar_copied.json
