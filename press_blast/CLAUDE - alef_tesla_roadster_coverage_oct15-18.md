@@ -233,50 +233,50 @@
 | 54 | SMZDM 什么值得买 | Mainland China | Feat | 80M) | Tesla flying car challenged by a peer: before buying a low-altitude aircraft, know what you're buying |  |  | No | https://post.smzdm.com/p/aomvv066/ |
 | 55 | SMZDM 什么值得买 | Mainland China | Feat | 80M) | Musk's flying car challenge sparks debate: guide for ordinary buyers |  |  | No | https://post.smzdm.com/p/a26xxnrq/ |
 | 56 | SMZDM 什么值得买 | Mainland China | Feat | 80M) | Behind the challenge to Musk's flying car: low-altitude economy supply chain explained |  |  | No | https://post.smzdm.com/p/a5rxxvl8/ |
-| 57 | Bilibili 哔哩哔哩 (Red Star Video 红星视频) | Mainland China | Feat | ~709K views (Red Star Video on Bilibili) | Musk's flying car challenged; rival says it is already 11 years ahead |  |  | No | https://www.bilibili.com/video/BV12tJB6TEJD/ |
+| 57 | Bilibili - Red Star Video 红星视频 | Mainland China | Feat | ~700K+ views (Red Star Video on Bilibili, reported in search previews) | Musk challenged: certified flying-car company posts video of an EV flying over the Roadster, 'we are 11 years  |  |  | No | https://www.bilibili.com/en/video/BV1pSJv6sEuE/ |
 | 58 | BigGo Finance | Taiwan | Feat | 0.5M | Alef Aeronautics Mocks Tesla's Roadster Stunt With 1,000th Flight Video |  |  | No | https://finance.biggo.com/news/9072953f-f323-414c-ad06-6fa3627f9ffd |
 | 59 | Guancha Fengwen (user column) | China | Feat | 30M) | Musk challenged! Rival flies over Tesla |  |  | No | https://user.guancha.cn/main/content?id=1755152 |
-| 60 | Bilibili 哔哩哔哩 | Mainland China | Feat | Bilibili video (views unknown) | Musk challenged: certified flying-car company posts video of an EV flying over the Roadster, 'we are 11 years  |  |  | No | https://www.bilibili.com/en/video/BV1pSJv6sEuE/ |
-| 61 | CACNews 加中新闻 (Canada) | Overseas (Canada) | Feat | 0.2M | Challenging Musk: flying-car developer claims 11-year lead |  |  | No | https://cacnews.ca/202412.html |
-| 62 | Bilibili 哔哩哔哩 | Mainland China | Ment | Bilibili video (views unknown) | Musk's Roadster flying car sparks debate, quickly challenged by a rival flying-car maker… |  |  | No | https://www.bilibili.com/video/BV1peJB6AEyi/ |
-| 63 | Weibo 微博 | Mainland China | Feat | Weibo post | Musk's flying car challenged; Alef claims 11-year lead |  |  | No | https://weibo.com/2/detail/5355360064901080 |
-| 64 | Weibo 微博 | Mainland China | Feat | Weibo post | Musk's flying car challenged by Alef Aeronautics, which says it leads the industry by 11 years |  |  | No | https://weibo.com/2/detail/5355341694632454 |
-| 65 | Weibo 微博 (comos) | Mainland China | Feat | Weibo post | Roadster vs Alef: which is stronger? |  |  | No | https://weibo.com/2/detail/comos:nivsnmi7152046 |
-| 66 | Weibo 微博 | Mainland China | Feat | Weibo post | Flew a car 11 years before Tesla; Musk's flying car challenged |  |  | No | https://weibo.com/2/detail/5355330135394160 |
-| 67 | Sina (sina.cn, Weibo-sourced post) | China | Feat | Weibo post reposted on Sina | Flying-car competition is on: Tesla has no certificate yet, rival 11 years ahead |  |  | No | https://www.sina.cn/weibo/detail/5355312706225111.html |
-| 68 | Sina (sina.cn, Weibo-sourced post) | China | Feat | Weibo post reposted on Sina | Musk's flying sports car challenged: certified flying car claims an 11-year lead |  |  | No | https://www.sina.cn/weibo/detail/5355314448438142.html |
-| 69 | Sina (sina.cn, Weibo-sourced post) | China | Feat | Weibo post reposted on Sina | Aircraft flies over Tesla, claims an 11-year lead; still far from daily commuting |  |  | No | https://www.sina.cn/weibo/detail/5355324651340957.html |
-| 70 | Sina (sina.cn, Weibo-sourced post) | China | Feat | Weibo post reposted on Sina | Tesla just launched the Roadster and a flying car dared to fly over its roof |  |  | No | https://www.sina.cn/weibo/detail/5355333788893331.html |
-| 71 | Sina (sina.cn, Weibo-sourced post) | China | Feat | Weibo post reposted on Sina | Tesla challenged as soon as it went airborne; years still separate it from a sellable flying car |  |  | No | https://www.sina.cn/weibo/detail/5355399131693144.html |
-| 72 | Sina (sina.cn, Weibo-sourced post) | China | Feat | Weibo post reposted on Sina | Musk just launched a flying sports car; this Silicon Valley firm claims an 11-year lead |  |  | No | https://www.sina.cn/weibo/detail/5355401052426645.html |
-| 73 | Sina (sina.cn, Weibo-sourced post) | China | Feat | Weibo post reposted on Sina | On the day Musk launched the flying sports car, a peer claimed an 11-year lead |  |  | No | https://www.sina.cn/weibo/detail/5355448326160413.html |
-| 74 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | FAA-certified firm says it is 11 years ahead |  |  | No | https://www.sina.cn/weibo/detail/5355061602945989.html |
-| 75 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | California firm says it is 11 years ahead |  |  | No | https://www.sina.cn/weibo/detail/5355061603472100.html |
-| 76 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | California firm flew over Musk's flying car |  |  | No | https://www.sina.cn/weibo/detail/5355066240272117.html |
-| 77 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | Rival flies over Tesla's roof: 11 years ahead |  |  | No | https://www.sina.cn/weibo/detail/5355074835452164.html |
-| 78 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | Peer has already flown over it |  |  | No | https://www.sina.cn/weibo/detail/5355094902048127.html |
-| 79 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | Who will lead future transport? |  |  | No | https://www.sina.cn/weibo/detail/5355115482974323.html |
-| 80 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | Alef had already been alone in front for 11 years |  |  | No | https://www.sina.cn/weibo/detail/5355134773105684.html |
-| 81 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | Flying-car company flew right over |  |  | No | https://www.sina.cn/weibo/detail/5355139456303814.html |
-| 82 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | Roadster still needs certification |  |  | No | https://www.sina.cn/weibo/detail/5355140326097118.html |
-| 83 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | 11-year veteran flies over Tesla |  |  | No | https://www.sina.cn/weibo/detail/5355144008961810.html |
-| 84 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | Rival 11 years ahead with $1bn in orders |  |  | No | https://www.sina.cn/weibo/detail/5355146423829906.html |
-| 85 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | Tesla flew, but Alef flew over it |  |  | No | https://www.sina.cn/weibo/detail/5355158821408687.html |
-| 86 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | #MuskFlyingCarChallenged# hashtag topic |  |  | No | https://www.sina.cn/weibo/detail/5355159859234162.html |
-| 87 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | Tesla relies on a stunt; rival holds an airworthiness certificate |  |  | No | https://www.sina.cn/weibo/detail/5355161428167048.html |
-| 88 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | The field had long split into two camps |  |  | No | https://www.sina.cn/weibo/detail/5355162782928275.html |
-| 89 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | Silicon Valley firm flew over it |  |  | No | https://www.sina.cn/weibo/detail/5355170121909304.html |
-| 90 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | After Tesla's flip, a flying car flew overhead |  |  | No | https://www.sina.cn/weibo/detail/5355255976165446.html |
-| 91 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | Someone flew overhead claiming an 11-year lead |  |  | No | https://www.sina.cn/weibo/detail/5355264393085095.html |
-| 92 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | Certified firm claims an 11-year lead |  |  | No | https://www.sina.cn/weibo/detail/5355275868964204.html |
-| 93 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | Alef flew over Tesla's head |  |  | No | https://www.sina.cn/weibo/detail/5355291168474950.html |
-| 94 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | Tesla called history's second flying car |  |  | No | https://www.sina.cn/weibo/detail/5355292476834025.html |
-| 95 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | ballistic parachute, $299,999 |  |  | No | https://www.sina.cn/weibo/detail/5355306322495551.html |
-| 96 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | Silicon Valley peer claims an 11-year lead |  |  | No | https://www.sina.cn/weibo/detail/5355309419728279.html |
-| 97 | Sina.cn (Weibo) | Mainland China | Feat | Weibo post reposted on Sina | Musk's flying car challenged: certified company says it's 11 years ahead |  |  | No | https://www.sina.cn/weibo/detail/5355257598576019.html |
-| 98 | Sina.cn (Weibo) | Mainland China | Feat | Weibo post reposted on Sina | Musk's flying car challenged; rival claims 11-year lead |  |  | No | https://www.sina.cn/weibo/detail/5355100501183466.html |
-| 99 | Sina.cn (Weibo) | Mainland China | Feat | Weibo post reposted on Sina | Musk just launched; peer flew over and claims 11-year lead |  |  | No | https://www.sina.cn/weibo/detail/5355066246562232.html |
-| 100 | Sina.cn (Weibo) | Mainland China | Feat | Weibo post reposted on Sina | On launch day, someone flew over the new car, claiming 11-year lead |  |  | No | https://www.sina.cn/weibo/detail/5355313600398989.html |
+| 60 | CACNews 加中新闻 (Canada) | Overseas (Canada) | Feat | 0.2M | Challenging Musk: flying-car developer claims 11-year lead |  |  | No | https://cacnews.ca/202412.html |
+| 61 | Bilibili 哔哩哔哩 | Mainland China | Ment | Bilibili video (views unknown) | Musk's Roadster flying car sparks debate, quickly challenged by a rival flying-car maker… |  |  | No | https://www.bilibili.com/video/BV1peJB6AEyi/ |
+| 62 | Weibo 微博 | Mainland China | Feat | Weibo post | Musk's flying car challenged; Alef claims 11-year lead |  |  | No | https://weibo.com/2/detail/5355360064901080 |
+| 63 | Weibo 微博 | Mainland China | Feat | Weibo post | Musk's flying car challenged by Alef Aeronautics, which says it leads the industry by 11 years |  |  | No | https://weibo.com/2/detail/5355341694632454 |
+| 64 | Weibo 微博 (comos) | Mainland China | Feat | Weibo post | Roadster vs Alef: which is stronger? |  |  | No | https://weibo.com/2/detail/comos:nivsnmi7152046 |
+| 65 | Weibo 微博 | Mainland China | Feat | Weibo post | Flew a car 11 years before Tesla; Musk's flying car challenged |  |  | No | https://weibo.com/2/detail/5355330135394160 |
+| 66 | Sina (sina.cn, Weibo-sourced post) | China | Feat | Weibo post reposted on Sina | Flying-car competition is on: Tesla has no certificate yet, rival 11 years ahead |  |  | No | https://www.sina.cn/weibo/detail/5355312706225111.html |
+| 67 | Sina (sina.cn, Weibo-sourced post) | China | Feat | Weibo post reposted on Sina | Musk's flying sports car challenged: certified flying car claims an 11-year lead |  |  | No | https://www.sina.cn/weibo/detail/5355314448438142.html |
+| 68 | Sina (sina.cn, Weibo-sourced post) | China | Feat | Weibo post reposted on Sina | Aircraft flies over Tesla, claims an 11-year lead; still far from daily commuting |  |  | No | https://www.sina.cn/weibo/detail/5355324651340957.html |
+| 69 | Sina (sina.cn, Weibo-sourced post) | China | Feat | Weibo post reposted on Sina | Tesla just launched the Roadster and a flying car dared to fly over its roof |  |  | No | https://www.sina.cn/weibo/detail/5355333788893331.html |
+| 70 | Sina (sina.cn, Weibo-sourced post) | China | Feat | Weibo post reposted on Sina | Tesla challenged as soon as it went airborne; years still separate it from a sellable flying car |  |  | No | https://www.sina.cn/weibo/detail/5355399131693144.html |
+| 71 | Sina (sina.cn, Weibo-sourced post) | China | Feat | Weibo post reposted on Sina | Musk just launched a flying sports car; this Silicon Valley firm claims an 11-year lead |  |  | No | https://www.sina.cn/weibo/detail/5355401052426645.html |
+| 72 | Sina (sina.cn, Weibo-sourced post) | China | Feat | Weibo post reposted on Sina | On the day Musk launched the flying sports car, a peer claimed an 11-year lead |  |  | No | https://www.sina.cn/weibo/detail/5355448326160413.html |
+| 73 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | FAA-certified firm says it is 11 years ahead |  |  | No | https://www.sina.cn/weibo/detail/5355061602945989.html |
+| 74 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | California firm says it is 11 years ahead |  |  | No | https://www.sina.cn/weibo/detail/5355061603472100.html |
+| 75 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | California firm flew over Musk's flying car |  |  | No | https://www.sina.cn/weibo/detail/5355066240272117.html |
+| 76 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | Rival flies over Tesla's roof: 11 years ahead |  |  | No | https://www.sina.cn/weibo/detail/5355074835452164.html |
+| 77 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | Peer has already flown over it |  |  | No | https://www.sina.cn/weibo/detail/5355094902048127.html |
+| 78 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | Who will lead future transport? |  |  | No | https://www.sina.cn/weibo/detail/5355115482974323.html |
+| 79 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | Alef had already been alone in front for 11 years |  |  | No | https://www.sina.cn/weibo/detail/5355134773105684.html |
+| 80 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | Flying-car company flew right over |  |  | No | https://www.sina.cn/weibo/detail/5355139456303814.html |
+| 81 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | Roadster still needs certification |  |  | No | https://www.sina.cn/weibo/detail/5355140326097118.html |
+| 82 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | 11-year veteran flies over Tesla |  |  | No | https://www.sina.cn/weibo/detail/5355144008961810.html |
+| 83 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | Rival 11 years ahead with $1bn in orders |  |  | No | https://www.sina.cn/weibo/detail/5355146423829906.html |
+| 84 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | Tesla flew, but Alef flew over it |  |  | No | https://www.sina.cn/weibo/detail/5355158821408687.html |
+| 85 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | #MuskFlyingCarChallenged# hashtag topic |  |  | No | https://www.sina.cn/weibo/detail/5355159859234162.html |
+| 86 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | Tesla relies on a stunt; rival holds an airworthiness certificate |  |  | No | https://www.sina.cn/weibo/detail/5355161428167048.html |
+| 87 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | The field had long split into two camps |  |  | No | https://www.sina.cn/weibo/detail/5355162782928275.html |
+| 88 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | Silicon Valley firm flew over it |  |  | No | https://www.sina.cn/weibo/detail/5355170121909304.html |
+| 89 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | After Tesla's flip, a flying car flew overhead |  |  | No | https://www.sina.cn/weibo/detail/5355255976165446.html |
+| 90 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | Someone flew overhead claiming an 11-year lead |  |  | No | https://www.sina.cn/weibo/detail/5355264393085095.html |
+| 91 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | Certified firm claims an 11-year lead |  |  | No | https://www.sina.cn/weibo/detail/5355275868964204.html |
+| 92 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | Alef flew over Tesla's head |  |  | No | https://www.sina.cn/weibo/detail/5355291168474950.html |
+| 93 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | Tesla called history's second flying car |  |  | No | https://www.sina.cn/weibo/detail/5355292476834025.html |
+| 94 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | ballistic parachute, $299,999 |  |  | No | https://www.sina.cn/weibo/detail/5355306322495551.html |
+| 95 | Sina.cn (Weibo post) | China | Feat | Weibo post reposted on Sina | Silicon Valley peer claims an 11-year lead |  |  | No | https://www.sina.cn/weibo/detail/5355309419728279.html |
+| 96 | Sina.cn (Weibo) | Mainland China | Feat | Weibo post reposted on Sina | Musk's flying car challenged: certified company says it's 11 years ahead |  |  | No | https://www.sina.cn/weibo/detail/5355257598576019.html |
+| 97 | Sina.cn (Weibo) | Mainland China | Feat | Weibo post reposted on Sina | Musk's flying car challenged; rival claims 11-year lead |  |  | No | https://www.sina.cn/weibo/detail/5355100501183466.html |
+| 98 | Sina.cn (Weibo) | Mainland China | Feat | Weibo post reposted on Sina | Musk just launched; peer flew over and claims 11-year lead |  |  | No | https://www.sina.cn/weibo/detail/5355066246562232.html |
+| 99 | Sina.cn (Weibo) | Mainland China | Feat | Weibo post reposted on Sina | On launch day, someone flew over the new car, claiming 11-year lead |  |  | No | https://www.sina.cn/weibo/detail/5355313600398989.html |
+| 100 | Sina.cn (Weibo) | Mainland China | Feat | Weibo post reposted on Sina | Rival flew over Musk's new car, says 11 years ahead |  |  | No | https://www.sina.cn/weibo/detail/5355160424421351.html |
 
 ## List 5: TV, radio & video (17)
 
@@ -297,32 +297,45 @@
 | 13 | Medi 1 Radio (X) | Morocco | Feat | Medi1 Radio on X (~1M followers) | Alef Aeronautics answers Tesla with its flying car! |  |  | No | https://x.com/medi1radio/status/2111474667517018289 |
 | 14 | RTVI (Russian-language TV) | US/International | Feat | 1M) | Live TV interview with Alef CEO Jim Dukhovny (Russian) | Producer Dmitry Popov | dpopov@rtvi.com | Yes, author (Producer Dmitry Popov) delivered, Oct 14 blast; Yes, RTVI: 3 delivered (Oct 14 blast) | https://www.youtube.com/live/nmUDTACermg?t=1184 |
 | 15 | WGN Radio 720 Chicago - The Lisa Dent Show | US | Feat | WGN Radio 720 (~1M weekly listeners) | Tesla to unveil and test a flying vehicle (Alef CEO Jim Dukhovny joins Lisa Dent) | Lisa Dent (host); producer Drew Harris | aharris@wgnradio.com | Yes, WGN Radio: 1 delivered, 1 bounced (Oct 14 blast) | https://wgnradio.com/lisa-dent/tesla-to-unveil-and-test-a-flying-vehicle/ |
-| 16 | Bilibili 哔哩哔哩 (Red Star Video 红星视频) | Mainland China | Feat | ~709K views (Red Star Video on Bilibili) | Musk's flying car challenged; rival says it is already 11 years ahead |  |  | No | https://www.bilibili.com/video/BV12tJB6TEJD/ |
+| 16 | Bilibili - Red Star Video 红星视频 | Mainland China | Feat | ~700K+ views (Red Star Video on Bilibili, reported in search previews) | Musk challenged: certified flying-car company posts video of an EV flying over the Roadster, 'we are 11 years  |  |  | No | https://www.bilibili.com/en/video/BV1pSJv6sEuE/ |
 | 17 | The FLY Report podcast (FLYJETS) | US | Feat | Podcast (small) | The FLY Report: Jim Dukhovny of Alef x Jessica Fisher | Jessica Fisher (host) | jessica@flyjets.com | Yes, author (Jessica Fisher (host)) delivered, Oct 14 blast; Yes, The FLY Report: 1 delivered (Oct 14 blast) | https://flyjets.com |
 
 ## List 6: Bloggers, YouTube & social (22)
 
 | # | Platform | Channel / account | Channel size | Views | Title | Contacted in blast? | URL |
 |---|---|---|---|---|---|---|---|
-| 1 | Bilibili | Red Star Video 红星视频 (Red Star News video channel) | unknown | ~709,520 views | 马斯克飞行汽车遭踢馆，对手喊话已经领先11年 (Musk's flying car challenged; rival says it is already 11 years ahead) | No | https://www.bilibili.com/video/BV12tJB6TEJD/ |
-| 2 | Bilibili | 天上一颗大星星 (UP主 creator) | unknown | ~528,305 views, 21.5K likes | 特斯拉Roadster会飞！发布会超全总结来了！ (Tesla Roadster can fly! Full launch recap) | No | https://www.bilibili.com/video/BV1j9JQ6oEeE/ |
+| 1 | Bilibili | Red Star Video 红星视频 (Red Star News video channel) | unknown | ~700K+ views (search preview, not verified) | 马斯克遭遇“踢馆”：有证的飞行汽车公司发视频…“我们已经领先了11年” (Musk challenged: certified flying-car company posts video, 'we  | No | https://www.bilibili.com/en/video/BV1pSJv6sEuE/ |
+| 2 | Bilibili | 天上一颗大星星 (individual UP主 creator) | unknown | ~528,305 views, 21.5K likes | 特斯拉Roadster会飞！发布会超全总结来了！ (Tesla Roadster can fly! Full launch recap) | No | https://www.bilibili.com/video/BV1j9JQ6oEeE/ |
 | 3 | X (Twitter) | @AJEnglish (Al Jazeera English) | ~8M followers | 211.3K views | California-based Alef Aeronautics took a playful swipe at Tesla... CEO Jim Dukhovny said Alef had be | No | https://x.com/AJEnglish/status/2111362828842012804 |
 | 4 | YouTube | Alef Aeronautics (our own channel, for reference) | unknown | over 138,000 views (press-reported) | Alef flying car flying over Tesla Roadster and Tesla Cybertruck (not AI, real video) | No | https://www.youtube.com/watch?v=stmWapR3CWY |
-| 5 | YouTube Shorts | Al Jazeera English | ~15M subscribers | unknown | 11-year old flying car company mocks Tesla Roadster | No | https://www.youtube.com/shorts/OerCN-uFEgk |
-| 6 | YouTube + blog | The Electric Viking (Sam Evans) | ~0.5M subscribers | unknown | Alef Flies Its Electric Flying Car Over Tesla Roadster, Welcomes New Rival to the Race | No | https://theelectricviking.com/alef-flies-electric-flying-car-over-tesla-roadster-welcomes-new-rival/ |
-| 7 | X (Twitter) | @medi1radio (Medi1 Radio, Morocco) | ~1M followers | unknown | أليف إيرونوتكس تردّ على تسلا بسيارتها الطائرة! (Alef Aeronautics answers Tesla with its flying car!) | No | https://x.com/medi1radio/status/2111474667517018289 |
-| 8 | Weibo (hashtag topic) | #马斯克飞行汽车遭踢馆# (#MuskFlyingCarChallenged#) | Weibo ~580M users | unknown (trending topic) | Hashtag topic: Alef's flying car flew over the Cybertruck and new Roadster | No | https://www.sina.cn/weibo/detail/5355159859234162.html |
-| 9 | Zhihu (Q&A) | Zhihu question | Zhihu ~100M users | unknown | 马斯克飞行汽车遭踢馆，初创公司…称已领先11年，谁的水平更高？ (Startup claims 11-year lead: who is better?) | No | https://www.zhihu.com/question/2095069107380905062 |
-| 10 | SMZDM (user posts) | SMZDM creators (4 posts) | SMZDM ~80M visits/mo | unknown | 马斯克飞行汽车被踢馆：“有证的飞行汽车公司”飞越特斯拉 (Certified flying-car company flies over Tesla) | No | https://post.smzdm.com/p/a6zppopz/ |
-| 11 | Blog | Pasquale Pillitteri (Italian tech blogger, 7 language editions) | ~0.5M visits/mo | unknown | Alef unveils flying car video over Tesla Roadster, claims it came first | No | https://pasqualepillitteri.it/en/news/25317/alef-flying-car-video-tesla-roadster-first |
-| 12 | Blog | TechEBlog (Bill Smith) | ~1M visits/mo | unknown | Alef Aeronautics Celebrates Thousandth Logged Flight Over Tesla Roadster | No | https://www.techeblog.com/alef-aeronautics-1000th-flight-tesla-roadster-flying-car/ |
-| 13 | Blog (Vocal) | Vocal Media, Wheel community | Vocal ~15M visits/mo | unknown | Alef Flew Over Tesla. That Does Not Settle the Flying Car Race. | No | https://vocal.media/wheel/alef-flew-over-tesla-that-does-not-settle-the-flying-car-race |
-| 14 | YouTube Shorts | Storyful (News Corp viral-video agency) | unknown | unknown | Alef Aeronautics Tease Elon Musk By Flying Car Over Teslas | Yes, Storyful: 1 delivered (Oct 14 blast) | https://www.youtube.com/shorts/t_Aiw3SjJD8 |
-| 15 | YouTube Shorts | unknown channel | unknown | unknown | Alef Flying Car TROLLS Elon Musk's Tesla Roadster! #shorts | No | https://www.youtube.com/watch?v=VXOpjbe1h4M |
-| 16 | YouTube | unknown news channel | unknown | unknown | Decade-Old flying car company mocks Tesla by flying over its models | No | https://www.youtube.com/watch?v=n2NYWvl3PI8 |
-| 17 | YouTube Shorts | unknown Spanish-language news channel | unknown | unknown | Se burlan del auto 'volador' de Tesla; empresa le restriega que lleva 11 años sobrevolando (They moc | No | https://www.youtube.com/shorts/RCf7v503K7M |
-| 18 | YouTube | unknown Bengali channel | unknown | unknown | টেসলাকে টপকে আকাশে আলেফ, জমজমাট উড়ন্ত গাড়ির প্রতিযোগিতা / Alef vs Tesla / Flying Car (Alef overtak | No | https://www.youtube.com/watch?v=9LSfLQN3FOY |
-| 19 | Bilibili | unknown creator | unknown | unknown | 马斯克遭遇“踢馆”：有证的飞行汽车公司发视频…“我们已经领先了11年” (Certified flying-car company posts video: 'we are 11 years ahea | No | https://www.bilibili.com/en/video/BV1pSJv6sEuE/ |
-| 20 | Bilibili | unknown creator | unknown | unknown | 马斯克发布特斯拉Roadster飞行跑车引发全网热议，随即遭到同行飞行汽车厂商隔空踢馆 (Roadster sparks debate, then a rival flying-car maker c | No | https://www.bilibili.com/video/BV1peJB6AEyi/ |
+| 5 | Bilibili | 陶衣柜 (individual, re-upload) | unknown | ~78 views | 马斯克飞行汽车遭踢馆，对手喊话已经领先11年 (Musk's flying car challenged; rival says it is already 11 years ahead) | No | https://www.bilibili.com/video/BV12tJB6TEJD/ |
+| 6 | YouTube Shorts | Al Jazeera English | ~15M subscribers | unknown | 11-year old flying car company mocks Tesla Roadster | No | https://www.youtube.com/shorts/OerCN-uFEgk |
+| 7 | YouTube + blog | The Electric Viking (Sam Evans) | ~0.3-0.5M subscribers (approx.) | unknown | Alef Flies Its Electric Flying Car Over Tesla Roadster, Welcomes New Rival to the Race | No | https://theelectricviking.com/alef-flies-electric-flying-car-over-tesla-roadster-welcomes-new-rival/ |
+| 8 | X (Twitter) | @medi1radio (Medi1 Radio, Morocco) | ~1M followers | unknown | أليف إيرونوتكس تردّ على تسلا بسيارتها الطائرة! (Alef Aeronautics answers Tesla with its flying car!) | No | https://x.com/medi1radio/status/2111474667517018289 |
+| 9 | Weibo (hashtag topic) | #马斯克飞行汽车遭踢馆# (#MuskFlyingCarChallenged#) | Weibo ~580M users | unknown (trending topic) | Hashtag topic: Alef's flying car flew over the Cybertruck and new Roadster | No | https://www.sina.cn/weibo/detail/5355159859234162.html |
+| 10 | Zhihu (Q&A) | Zhihu question | Zhihu ~100M users | unknown | 马斯克飞行汽车遭踢馆，初创公司…称已领先11年，谁的水平更高？ (Startup claims 11-year lead: who is better?) | No | https://www.zhihu.com/question/2095069107380905062 |
+| 11 | SMZDM (user posts) | SMZDM creators (4 posts) | SMZDM ~80M visits/mo | unknown | 马斯克飞行汽车被踢馆：“有证的飞行汽车公司”飞越特斯拉 (Certified flying-car company flies over Tesla) | No | https://post.smzdm.com/p/a6zppopz/ |
+| 12 | Blog | Pasquale Pillitteri (Italian tech blogger, 7 language editions) | ~0.5M visits/mo | unknown | Alef unveils flying car video over Tesla Roadster, claims it came first | No | https://pasqualepillitteri.it/en/news/25317/alef-flying-car-video-tesla-roadster-first |
+| 13 | Blog | TechEBlog (Bill Smith) | ~1M visits/mo | unknown | Alef Aeronautics Celebrates Thousandth Logged Flight Over Tesla Roadster | No | https://www.techeblog.com/alef-aeronautics-1000th-flight-tesla-roadster-flying-car/ |
+| 14 | Blog (Vocal) | Vocal Media, Wheel community | Vocal ~15M visits/mo | unknown | Alef Flew Over Tesla. That Does Not Settle the Flying Car Race. | No | https://vocal.media/wheel/alef-flew-over-tesla-that-does-not-settle-the-flying-car-race |
+| 15 | Bilibili | unknown creator | unknown | unknown | 马斯克发布特斯拉Roadster飞行跑车引发全网热议，随即遭到同行飞行汽车厂商隔空踢馆 (Roadster sparks debate, then a rival flying-car maker c | No | https://www.bilibili.com/video/BV1peJB6AEyi/ |
+| 16 | YouTube Shorts | Storyful (News Corp viral-video agency) | unknown | unknown | Alef Aeronautics Tease Elon Musk By Flying Car Over Teslas | Yes, Storyful: 1 delivered (Oct 14 blast) | https://www.youtube.com/shorts/t_Aiw3SjJD8 |
+| 17 | YouTube Shorts | unknown channel | unknown | unknown | Alef Flying Car TROLLS Elon Musk's Tesla Roadster! #shorts | No | https://www.youtube.com/watch?v=VXOpjbe1h4M |
+| 18 | YouTube | unknown news channel | unknown | unknown | Decade-Old flying car company mocks Tesla by flying over its models | No | https://www.youtube.com/watch?v=n2NYWvl3PI8 |
+| 19 | YouTube Shorts | unknown Spanish-language news channel | unknown | unknown | Se burlan del auto 'volador' de Tesla; empresa le restriega que lleva 11 años sobrevolando (They moc | No | https://www.youtube.com/shorts/RCf7v503K7M |
+| 20 | YouTube | unknown Bengali channel | unknown | unknown | টেসলাকে টপকে আকাশে আলেফ, জমজমাট উড়ন্ত গাড়ির প্রতিযোগিতা / Alef vs Tesla / Flying Car (Alef overtak | No | https://www.youtube.com/watch?v=9LSfLQN3FOY |
 | 21 | Substack | curaition | unknown | unknown | A kickflip, not a car: what Tesla's flying Roadster showed, and what it didn't | No | https://curaition.substack.com/p/a-kickflip-not-a-car-what-teslas |
 | 22 | Podcast | The FLY Report (Jessica Fisher, FLYJETS) | unknown | not released yet | The FLY Report: Jim Dukhovny of Alef x Jessica Fisher | Yes, The FLY Report: 1 delivered (Oct 14 blast) | https://flyjets.com |
+
+## List 7: Individual bloggers (8)
+
+| # | Person | Platform | Audience | Views | Title | Type | URL |
+|---|---|---|---|---|---|---|---|
+| 1 | Sam Evans | The Electric Viking (YouTube channel + blog) | ~300-500K YouTube subscribers (approx.) | unknown | Alef Flies Its Electric Flying Car Over Tesla Roadster, Welcomes New Rival to the Race | Featuring | https://theelectricviking.com/alef-flies-electric-flying-car-over-tesla-roadster-welcomes-new-rival/ |
+| 2 | Joel Comm | Substack (joelcomm) | ~100K on X (approx.); Substack size unknown | unknown | Tesla's Roadster Left the Ground. The Flying-Car Question Barely Moved. | Mentioning | https://joelcomm.substack.com/p/teslas-roadster-left-the-ground-the |
+| 3 | 天上一颗大星星 | Bilibili (individual UP主) | unknown | ~528,305 views | 特斯拉Roadster会飞！发布会超全总结来了！ (Tesla Roadster can fly! Full launch recap) | Mentioning (unconfirmed) | https://www.bilibili.com/video/BV1j9JQ6oEeE/ |
+| 4 | Pasquale Pillitteri | Personal blog pasqualepillitteri.it (software engineer, Palermo) | ~3.4K newsletter subscribers | unknown | Alef unveils flying car video over Tesla Roadster, claims it came first (also in IT, ZH, DE, TR, PT, | Featuring | https://pasqualepillitteri.it/en/news/25317/alef-flying-car-video-tesla-roadster-first |
+| 5 | Paul Wiggins | X @paulwiggins | unknown | unknown | Alef Trolls Tesla With Video of Its Car Flying Over a Roadster (shared Gizmodo link) | Mentioning | https://x.com/paulwiggins/status/2111269407905419421 |
+| 6 | 陶衣柜 | Bilibili (individual) | unknown | ~78 views | 马斯克飞行汽车遭踢馆，对手喊话已经领先11年 (Musk's flying car challenged; rival says it is 11 years ahead) | Featuring | https://www.bilibili.com/video/BV12tJB6TEJD/ |
+| 7 | unknown author | Vocal Media (Wheel) | unknown | unknown | Alef Flew Over Tesla. That Does Not Settle the Flying Car Race. | Featuring | https://vocal.media/wheel/alef-flew-over-tesla-that-does-not-settle-the-flying-car-race |
+| 8 | unknown author | Substack (curaition) | unknown | unknown | A kickflip, not a car: what Tesla's flying Roadster showed, and what it didn't | Mentioning (unconfirmed) | https://curaition.substack.com/p/a-kickflip-not-a-car-what-teslas |
