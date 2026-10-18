@@ -299,3 +299,30 @@
 | 15 | WGN Radio 720 Chicago - The Lisa Dent Show | US | Feat | WGN Radio 720 (~1M weekly listeners) | Tesla to unveil and test a flying vehicle (Alef CEO Jim Dukhovny joins Lisa Dent) | Lisa Dent (host); producer Drew Harris | aharris@wgnradio.com | Yes, WGN Radio: 1 delivered, 1 bounced (Oct 14 blast) | https://wgnradio.com/lisa-dent/tesla-to-unveil-and-test-a-flying-vehicle/ |
 | 16 | Bilibili 哔哩哔哩 (Red Star Video 红星视频) | Mainland China | Feat | ~709K views (Red Star Video on Bilibili) | Musk's flying car challenged; rival says it is already 11 years ahead |  |  | No | https://www.bilibili.com/video/BV12tJB6TEJD/ |
 | 17 | The FLY Report podcast (FLYJETS) | US | Feat | Podcast (small) | The FLY Report: Jim Dukhovny of Alef x Jessica Fisher | Jessica Fisher (host) | jessica@flyjets.com | Yes, author (Jessica Fisher (host)) delivered, Oct 14 blast; Yes, The FLY Report: 1 delivered (Oct 14 blast) | https://flyjets.com |
+
+## List 6: Bloggers, YouTube & social (22)
+
+| # | Platform | Channel / account | Channel size | Views | Title | Contacted in blast? | URL |
+|---|---|---|---|---|---|---|---|
+| 1 | Bilibili | Red Star Video 红星视频 (Red Star News video channel) | unknown | ~709,520 views | 马斯克飞行汽车遭踢馆，对手喊话已经领先11年 (Musk's flying car challenged; rival says it is already 11 years ahead) | No | https://www.bilibili.com/video/BV12tJB6TEJD/ |
+| 2 | Bilibili | 天上一颗大星星 (UP主 creator) | unknown | ~528,305 views, 21.5K likes | 特斯拉Roadster会飞！发布会超全总结来了！ (Tesla Roadster can fly! Full launch recap) | No | https://www.bilibili.com/video/BV1j9JQ6oEeE/ |
+| 3 | X (Twitter) | @AJEnglish (Al Jazeera English) | ~8M followers | 211.3K views | California-based Alef Aeronautics took a playful swipe at Tesla... CEO Jim Dukhovny said Alef had be | No | https://x.com/AJEnglish/status/2111362828842012804 |
+| 4 | YouTube | Alef Aeronautics (our own channel, for reference) | unknown | over 138,000 views (press-reported) | Alef flying car flying over Tesla Roadster and Tesla Cybertruck (not AI, real video) | No | https://www.youtube.com/watch?v=stmWapR3CWY |
+| 5 | YouTube Shorts | Al Jazeera English | ~15M subscribers | unknown | 11-year old flying car company mocks Tesla Roadster | No | https://www.youtube.com/shorts/OerCN-uFEgk |
+| 6 | YouTube + blog | The Electric Viking (Sam Evans) | ~0.5M subscribers | unknown | Alef Flies Its Electric Flying Car Over Tesla Roadster, Welcomes New Rival to the Race | No | https://theelectricviking.com/alef-flies-electric-flying-car-over-tesla-roadster-welcomes-new-rival/ |
+| 7 | X (Twitter) | @medi1radio (Medi1 Radio, Morocco) | ~1M followers | unknown | أليف إيرونوتكس تردّ على تسلا بسيارتها الطائرة! (Alef Aeronautics answers Tesla with its flying car!) | No | https://x.com/medi1radio/status/2111474667517018289 |
+| 8 | Weibo (hashtag topic) | #马斯克飞行汽车遭踢馆# (#MuskFlyingCarChallenged#) | Weibo ~580M users | unknown (trending topic) | Hashtag topic: Alef's flying car flew over the Cybertruck and new Roadster | No | https://www.sina.cn/weibo/detail/5355159859234162.html |
+| 9 | Zhihu (Q&A) | Zhihu question | Zhihu ~100M users | unknown | 马斯克飞行汽车遭踢馆，初创公司…称已领先11年，谁的水平更高？ (Startup claims 11-year lead: who is better?) | No | https://www.zhihu.com/question/2095069107380905062 |
+| 10 | SMZDM (user posts) | SMZDM creators (4 posts) | SMZDM ~80M visits/mo | unknown | 马斯克飞行汽车被踢馆：“有证的飞行汽车公司”飞越特斯拉 (Certified flying-car company flies over Tesla) | No | https://post.smzdm.com/p/a6zppopz/ |
+| 11 | Blog | Pasquale Pillitteri (Italian tech blogger, 7 language editions) | ~0.5M visits/mo | unknown | Alef unveils flying car video over Tesla Roadster, claims it came first | No | https://pasqualepillitteri.it/en/news/25317/alef-flying-car-video-tesla-roadster-first |
+| 12 | Blog | TechEBlog (Bill Smith) | ~1M visits/mo | unknown | Alef Aeronautics Celebrates Thousandth Logged Flight Over Tesla Roadster | No | https://www.techeblog.com/alef-aeronautics-1000th-flight-tesla-roadster-flying-car/ |
+| 13 | Blog (Vocal) | Vocal Media, Wheel community | Vocal ~15M visits/mo | unknown | Alef Flew Over Tesla. That Does Not Settle the Flying Car Race. | No | https://vocal.media/wheel/alef-flew-over-tesla-that-does-not-settle-the-flying-car-race |
+| 14 | YouTube Shorts | Storyful (News Corp viral-video agency) | unknown | unknown | Alef Aeronautics Tease Elon Musk By Flying Car Over Teslas | Yes, Storyful: 1 delivered (Oct 14 blast) | https://www.youtube.com/shorts/t_Aiw3SjJD8 |
+| 15 | YouTube Shorts | unknown channel | unknown | unknown | Alef Flying Car TROLLS Elon Musk's Tesla Roadster! #shorts | No | https://www.youtube.com/watch?v=VXOpjbe1h4M |
+| 16 | YouTube | unknown news channel | unknown | unknown | Decade-Old flying car company mocks Tesla by flying over its models | No | https://www.youtube.com/watch?v=n2NYWvl3PI8 |
+| 17 | YouTube Shorts | unknown Spanish-language news channel | unknown | unknown | Se burlan del auto 'volador' de Tesla; empresa le restriega que lleva 11 años sobrevolando (They moc | No | https://www.youtube.com/shorts/RCf7v503K7M |
+| 18 | YouTube | unknown Bengali channel | unknown | unknown | টেসলাকে টপকে আকাশে আলেফ, জমজমাট উড়ন্ত গাড়ির প্রতিযোগিতা / Alef vs Tesla / Flying Car (Alef overtak | No | https://www.youtube.com/watch?v=9LSfLQN3FOY |
+| 19 | Bilibili | unknown creator | unknown | unknown | 马斯克遭遇“踢馆”：有证的飞行汽车公司发视频…“我们已经领先了11年” (Certified flying-car company posts video: 'we are 11 years ahea | No | https://www.bilibili.com/en/video/BV1pSJv6sEuE/ |
+| 20 | Bilibili | unknown creator | unknown | unknown | 马斯克发布特斯拉Roadster飞行跑车引发全网热议，随即遭到同行飞行汽车厂商隔空踢馆 (Roadster sparks debate, then a rival flying-car maker c | No | https://www.bilibili.com/video/BV1peJB6AEyi/ |
+| 21 | Substack | curaition | unknown | unknown | A kickflip, not a car: what Tesla's flying Roadster showed, and what it didn't | No | https://curaition.substack.com/p/a-kickflip-not-a-car-what-teslas |
+| 22 | Podcast | The FLY Report (Jessica Fisher, FLYJETS) | unknown | not released yet | The FLY Report: Jim Dukhovny of Alef x Jessica Fisher | Yes, The FLY Report: 1 delivered (Oct 14 blast) | https://flyjets.com |
