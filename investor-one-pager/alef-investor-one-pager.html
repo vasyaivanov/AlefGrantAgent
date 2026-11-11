@@ -33,16 +33,13 @@ body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--font-b
 .tagline{margin:0 0 6px;display:flex;flex-wrap:wrap;align-items:center;gap:12px;font-family:var(--font-display);font-weight:500;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--brand)}
 .tagline .sep{width:1px;height:14px;background:var(--line)}
 .hero{margin:18px 0 0}
-.hero img{display:block;width:100%;max-width:100%;height:250px;object-fit:cover;object-position:50% 36%;border-radius:4px}
+.hero img{display:block;width:100%;max-width:100%;height:300px;object-fit:cover;object-position:50% 24%;border-radius:4px}
 .photo-note{display:flex;align-items:center;gap:7px;margin-top:8px;font-size:11px;line-height:1.3;color:var(--muted)}
 .photo-note svg{flex:none;color:var(--brand)}
-.body{display:grid;grid-template-columns:minmax(0,1fr) 240px;gap:34px;margin-top:22px}
-.facts{display:flex;flex-direction:column;gap:10px;min-width:0}
-.group{border-top:1px solid var(--line);padding-top:8px;display:flex;flex-direction:column;gap:5px}
-.eyebrow{font-family:var(--font-display);font-weight:500;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--brand);margin:0}
-.group ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:3px}
-.group li{position:relative;padding-left:16px;font-size:12.5px;line-height:1.45;color:var(--ink)}
-.group li::before{content:"";position:absolute;left:0;top:.7em;width:7px;height:2px;background:var(--brand)}
+.body{display:grid;grid-template-columns:minmax(0,1fr) 256px;gap:36px;margin-top:22px;padding-top:22px;border-top:1px solid var(--line)}
+.facts{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px;min-width:0}
+.facts li{position:relative;padding-left:18px;font-size:13.5px;line-height:1.5;color:var(--ink)}
+.facts li::before{content:"";position:absolute;left:0;top:.7em;width:7px;height:2px;background:var(--brand)}
 .gallery{display:flex;flex-direction:column;gap:14px;min-width:0}
 .gallery figure{margin:0}
 .gallery img{display:block;width:100%;max-width:100%;height:auto;border-radius:4px}
@@ -95,43 +92,18 @@ body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--font-b
   </figure>
 
   <section class="body">
-    <div class="facts">
-      <div class="group">
-        <h2 class="eyebrow">Prototype &amp; testing</h2>
-        <ul>
-          <li>Full-size prototype stage: driven, flown, piloted</li>
-          <li>1,000+ logged flights, 500 drive tests</li>
-        </ul>
-      </div>
-      <div class="group">
-        <h2 class="eyebrow">Demand</h2>
-        <ul>
-          <li>3,600 pre-orders with $150 and $1,500 refundable deposits</li>
-          <li>3,100 individual deposits + 500 B2B agreements (Emergency Response, Resellers)</li>
-        </ul>
-      </div>
-      <div class="group">
-        <h2 class="eyebrow">Recognition</h2>
-        <ul>
-          <li>Featured on CNN, Fox, NBC, ABC, BBC, Reuters, and Time Magazine Best Innovation</li>
-          <li>2 billion views of Alef videos across all channels on the internet</li>
-        </ul>
-      </div>
-      <div class="group">
-        <h2 class="eyebrow">Regulation &amp; market</h2>
-        <ul>
-          <li>Legal today. Plugs into existing ground and air infrastructure today.</li>
-          <li>Go-to-market: Ultralight Aircraft (no certification, no license needed) for remote areas or large rural properties, and an Emergency Response SAR vehicle</li>
-          <li>Long-term vision: The inevitability of flying cars as the main transport because of increasing traffic</li>
-        </ul>
-      </div>
-      <div class="group">
-        <h2 class="eyebrow">Investment</h2>
-        <ul>
-          <li>Further along than all eVTOLs were at the time of their IPO (multiple IPO, SPAC, and acquisition requests received)</li>
-        </ul>
-      </div>
-    </div>
+    <ul class="facts">
+      <li>Full-size prototype stage: driven, flown, piloted</li>
+      <li>1,000+ logged flights, 500 drive tests</li>
+      <li>3,600 pre-orders with $150 and $1,500 refundable deposits</li>
+      <li>3,100 individual deposits + 500 B2B agreements (Emergency Response, Resellers)</li>
+      <li>Featured on CNN, Fox, NBC, ABC, BBC, Reuters, and Time Magazine Best Innovation</li>
+      <li>2 billion views of Alef videos across all channels on the internet</li>
+      <li>Legal today. Plugs into existing ground and air infrastructure today.</li>
+      <li>Go-to-market: Ultralight Aircraft (no certification, no license needed) for remote areas or large rural properties, and an Emergency Response SAR vehicle</li>
+      <li>Long-term vision: The inevitability of flying cars as the main transport because of increasing traffic</li>
+      <li>Further along than all eVTOLs were at the time of their IPO (multiple IPO, SPAC, and acquisition requests received)</li>
+    </ul>
     <aside class="gallery">
       <figure>
         <img src="assets/model-a-street.jpg" alt="The Alef flying car parked on a residential street with its door open">
